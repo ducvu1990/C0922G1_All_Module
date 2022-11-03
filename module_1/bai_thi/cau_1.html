@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cau 1</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let strings;
+    do {
+        strings = prompt("nhap n phan tu do dai nho hon 20").split("");
+    }while (strings.length>20)
+    document.write("mang vua nhap la: " + strings + "<br>");
+    let stringa = strings;
+    // for (let i = 0; i < strings.length; i++) {
+    //     stringa.push(strings[i]);
+    // }
+    for (let i = 0; i < stringa.length; i++) {
+        for (let j = i+1; j < stringa.length;) {
+            if (stringa[i] === stringa[j]){
+                stringa.splice(j,1);
+            }else {
+                j++;
+            }
+        }
+    }
+    let assign = "";
+    for (let i = 0; i < stringa.length; i++) {
+        let count = 0;
+        for (let j = 0; j < strings.length; j++) {
+            if (stringa[i] === strings[j]) {
+                count += 1;
+            }
+        }
+        assign += "ky tu " + "'" + stringa[i] + "'" + " xuat hien " + count + " lan <br>";
+    }
+    document.write(assign);
+</script>

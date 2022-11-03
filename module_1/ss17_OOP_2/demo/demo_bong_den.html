@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="bongDen" width="1000" height="100"></canvas>
+<script>
+    class ElectricLamp {
+        constructor(status,) {
+            this.status = status;
+            // this.tuoiTho = tuoiTho;
+        }
+        turnOn() {
+            this.status = true;
+            return  this.status = "red";
+        }
+
+        turnOff() {
+            this.status = false;
+            return this.status = "black";
+        }
+        // giamTuiTho() {
+        //     if (tuoiTho <= 0) {
+        //         alert('Bóng đèn hư');
+        //     }else {
+        //         this.tuoiTho = tuoiTho - 1;
+        //     }
+        //
+        // }
+    }
+
+    class SwitchButton {
+        constructor(status, electricLamp) {
+            this.status = status;
+            this.electricLamp = electricLamp;
+        }
+
+        //Bóng đèn hư thì coonect tới 1 bóng đèn khác
+        connectToLamp(electricLamp2) {
+            this.electricLamp = electricLamp2;
+        }
+
+        switchOn() {
+            this.status = true;
+            this.electricLamp.turnOn();
+        }
+
+        switchOff() {
+            this.status = false;
+            this.electricLamp.turnOff();
+        }
+    }
+
+    let lamp = new ElectricLamp(false);
+    let button = new SwitchButton(false, lamp);
+    button.switchOn();
+
+
+
+
+
+    class HinhChuNhat {
+        constructor(x, y, chieuDai, chieuRong, mau) {
+            this.x = x;
+            this.y = y;
+            this.chieuDai = chieuDai;
+            this.chieuRong = chieuRong;
+            this.mau = mau;
+        }
+        toaDoX(x) {
+            this.x = 100;
+        }
+        toaDoy(y) {
+            this.y = 100;
+        }
+
+
+        setChieuDai(chieuDai) {
+            this.chieuDai = 1000;
+        }
+
+        setChieuRong(chieuRong) {
+            this.chieuRong = 10;
+        }
+        doMau(mau){
+            this.mau = mau;
+        }
+
+        getHinhChuNhat() {
+            return "tọa độ x=" + this.x +', ' + "Tọa độ y=" + this.y +', chiều dài= ' +this.chieuDai + ', Chiều rộng= '
+                + this.chieuRong + ", S = " + this.chieuDai * this.chieuRong + ', ChuVi= ' + (this.chieuDai + this.chieuRong) * 2;
+        }
+    }
+
+    let canvas = document.getElementById("hinhChuNhat");
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = this.ElectricLamp();
+    ctx.fillRect(x, y, chieuDai, chieuRong);
+</script>
+</body>
+</html>

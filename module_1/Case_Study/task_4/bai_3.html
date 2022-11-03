@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm ký tự chung giữ 2 chuổi</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let a = prompt("Nhập chuổi a").split("");
+    let b = prompt("Nhập chuổi b").split("");
+    let count = 0;
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < b.length; j++) {
+            if (a[i] === b[j]){
+                b.splice(j,1);
+                count += 1;
+                break;
+            }
+        }
+    }
+    alert(count);
+</script>

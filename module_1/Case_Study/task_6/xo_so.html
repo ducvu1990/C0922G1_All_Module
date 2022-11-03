@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xổ số</title>
+</head>
+<body>
+<h1>Xổ số CodeGym</h1>
+
+    <table>
+        <tr>
+            <td id="khacHang"></td>
+        </tr>
+        <tr>
+            <td id="ketQua"></td>
+        </tr>
+    </table>
+    <p id="datalist"></p>
+    <button onclick="muaVe()">Mua vé</button><button onclick="xemKetQua()">Xem kết quả</button><br>
+    <p id="veKhachHangDaMua"></p>
+</body>
+</html>
+<script>
+    function giaoDien() {
+        let count = "";
+        for (let i = 1; i <= 6; i++) {
+            count += "<td><input id=\"kq1\" value=" +i+"5"+  " size=\"1\" ></td>";
+            document.getElementById('khacHang').innerHTML = count;
+        }
+        let count1 = "";
+        for (let i = 0; i < 6; i++) {
+            count1 += "<td><input value=\" 00 \" size=\"1\" ></td>";
+            document.getElementById('ketQua').innerHTML = count1;
+        }
+    }
+    giaoDien();
+
+    function list() {
+        let count0 = "";
+        for (let i = 0; i < 6; i++) {
+            count0 += "<td><input list=\"chonso\" id=" + 'so' + (i+1) + " size=\"1\"></td>";
+        }
+        count0 += " <button onclick=\"chon()\">Chọn vé</button>";
+        document.getElementById('khacHang').innerHTML = count0;
+        document.getElementById('datalist').innerHTML = "<datalist id=\"chonso\">\n" +
+            "        <option id=\"list\" value=\"01\"></option>\n" +
+            "    </datalist>"
+        let arr = [];
+        for (let i = 0; i < 100; i++) {
+            arr.push(i);
+        }
+        let count = "";
+        for (let i = 0; i < arr.length; i++) {
+            count += "<option value=" + arr[i] +"\></option>";
+        }
+        document.getElementById("list").innerHTML = count;
+
+    }
+
+    function chon() {
+        ketQuaKHChon();
+        hienThiVeKhachHang();
+    }
+
+    function toaMangKhachHangVaRandomKetQua() {
+        let arr0 = [];
+        for (let i = 0; i < 6; i++) {
+            arr0.push(Math.floor(Math.random()*100));
+        }
+        let count = "";
+        for (let i = 0; i < 6; i++) {
+            count += "<td><input id=" + "so" + (i+1) +" value=" + arr0[i] + " size=\"1\" ></td>";
+            document.getElementById('khacHang').innerHTML = count;
+        }
+    }
+
+    let veKhachHang = [];
+    let selective = 0;
+    function muaVe() {
+        if (veKhachHang.length < 4){
+            selective = parseInt(prompt("Chon cách nhập số \n" +
+                "1. Bạn muốn tự chọn số. \n" +
+                "2. Hệ thông tự random."));
+            if ( selective === 1) {
+                list();
+
+            }else {
+                toaMangKhachHangVaRandomKetQua();
+                ketQuaKHChon();
+            }
+            hienThiVeKhachHang();
+        }else {
+            alert("Bạn chỉ được phép mua tối đa 4 vé");
+        }
+        selective = 0;
+    }
+
+    function hienThiVeKhachHang() {
+        let counts = "";
+        for (let i = 0; i < veKhachHang.length; i++) {
+            counts += "<br>Vé thứ " + (i+1) +": ";
+            for (let j = 0; j < veKhachHang[i].length; j++) {
+                counts += " "+ veKhachHang[i][j] +"  ";
+            }
+
+        }
+        document.getElementById('veKhachHangDaMua').innerHTML = counts;
+    }
+
+    function ketQuaKHChon() {
+        let arrAssign = [];
+        for (let i = 0; i < 6; i++) {
+            let assign = 0;
+            assign = document.getElementById("so" + (i+1)).value;
+            arrAssign.push(assign*1);
+        }
+        veKhachHang.push(arrAssign);
+    }
+
+    let arr1 = [];
+    for (let i = 0; i < 6; i++) {
+        arr1.push(Math.floor(Math.random()*100));
+    }
+
+    function randomKetQua() {
+        let count = "";
+        for (let i = 0; i < 6; i++) {
+            count += "<td><input id='random" + (i+1) + "' value=" + arr1[i] + " size=\"1\" ></td>";
+            document.getElementById('ketQua').innerHTML = count;
+        }
+    }
+
+
+
+
+    function xemKetQua() {
+        randomKetQua();
+        for (let i = 0; i < veKhachHang.length; i++) {
+            let countKetQua = 0;
+            for (let j = 0; j < veKhachHang[i].length; j++) {
+                if (veKhachHang[i][j] === arr1[j]) {
+                    countKetQua += 1;
+                }
+            }
+            if (countKetQua === 6) {
+                alert("Vé thứ " + (i+1) + " Bạn đã trúng Giải Nhất trị giá 5000VND");
+            }else if (countKetQua === 5) {
+                alert("Vé thứ " + (i+1) + " Bạn đã trúng Giải Nhì trị giá 3000VND");
+            }else if (countKetQua === 3) {
+                alert("Vé thứ " + (i+1) + " Bạn đã trúng Giải Khuyến khích trị giá 1000VND");
+            }else {
+                alert("Vé thứ " + (i+1) + " Chúc bạn may mắn lần sau");
+            }
+        }
+
+    }
+
+</script>

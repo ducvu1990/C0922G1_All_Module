@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+</head>
+<body>
+    So tien <input id="soTien"><br>
+    from<select id="from">
+            <option value="vin" >vin</option>
+            <option value="usd">usd</option>
+        </select>
+    to<select id="to">
+            <option value="vin">vin</option>
+            <option value="usd">usd</option>
+    </select>
+<button onclick="chuyenDoi()">chuyen doi</button>
+<p id="demo">ket qua</p>
+</body>
+<script>
+    function chuyenDoi() {
+        let ketQua;
+        let soTien = document.getElementById("soTien").value;
+        let from = document.getElementById("from").value;
+        let to = document.getElementById("to").value;
+        if (from == "vin" && to == "usd") {
+            ketQua = soTien/23000 + "$";
+            alert(ketQua);
+        }
+        if (from == to) {
+            ketQua = soTien;
+            alert(ketQua);
+        }
+        if (from == "usd" && to == "vin") {
+            ketQua = soTien*23000 + "VND";
+             document.getElementById("soTien").value = ketQua ;
+        }
+    }
+</script>
+</html>

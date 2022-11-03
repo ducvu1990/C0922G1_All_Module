@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 4</title>
+</head>
+<body>
+    <script>
+        function kiemTraGiaTriSo(a) {
+            let traVe;
+            if (isNaN(a) == false) {
+                traVe = true;
+            }else {
+                traVe = false;
+            }
+            return traVe;
+        }
+        let a = +prompt("Nhập a");
+        let returnValue = kiemTraGiaTriSo(a);
+        alert(returnValue);
+    </script>
+</body>
+</html>

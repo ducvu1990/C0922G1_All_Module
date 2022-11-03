@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    class NhietDo {
+        constructor(doC) {
+            this.doC = doC;
+        }
+
+        chuyenDoF() {
+            return 9 / 5 * this.doC + 32;
+        }
+
+        chuyenDoK() {
+            return this.doC + 273.15;
+        }
+    }
+    let nhietDo = parseInt(prompt("Nhập độ C"));
+    while (nhietDo < -273) {
+        nhietDo = parseInt(prompt("Nhiệt độ không đúng. Mời nhập lại dộ C"));
+    }
+    let doC = new NhietDo(nhietDo);
+    document.write("Độ F= " + doC.chuyenDoF() + '<br>');
+    document.write("Độ kenvin = " + doC.chuyenDoK());
+</script>

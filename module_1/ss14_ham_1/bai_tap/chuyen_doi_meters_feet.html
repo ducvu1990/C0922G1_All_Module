@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi meters và feet</title>
+</head>
+<body>
+    <input id="input" oninput="convert()">
+    <select id="dauVao">
+        <option value="meters">meters</option>
+        <option value="feet">feet</option>
+    </select>
+    <input id="output">
+    <select id="dauRa">
+        <option value="meters">meters</option>
+        <option value="feet">feet</option>
+    </select>
+</body>
+</html>
+<script>
+    function feetToMeters(feet) {
+        let meters = feet * 0.305;
+        return meters;
+    }
+
+    function metersToFeet(meters) {
+        let feet = meters * 3.279;
+        return feet;
+    }
+    function convert() {
+        let nhapVao = document.getElementById("input").value;
+        let giaTriDauVao = document.getElementById("dauVao").value;
+        let giaTriDauRa;
+        let xuatRa = document.getElementById("dauRa").value;
+        if (giaTriDauVao == xuatRa) {
+            document.getElementById('output').value = nhapVao;
+        }else if (giaTriDauVao == "meters" && xuatRa == "feet") {
+            giaTriDauRa = metersToFeet(nhapVao);
+            document.getElementById('output').value = giaTriDauRa;
+        }else {
+            giaTriDauRa = feetToMeters(nhapVao);
+            document.getElementById('output').value = giaTriDauRa;
+        }
+    }
+</script>

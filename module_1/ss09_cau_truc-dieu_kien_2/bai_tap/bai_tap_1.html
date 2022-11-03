@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 1</title>
+</head>
+<body>
+    Nhập số a<input id="soA"><br>
+    Nhập số b<input id="soB">
+    <button onclick="kiemTra()">Kiểm tra</button><br>
+    Kết quả<p id="ketQua"></p>
+</body>
+    <script>
+        function kiemTra() {
+        let a = parseInt(document.getElementById('soA').value);
+        let b = parseInt(document.getElementById('soB').value);
+        if (a % b ==0) {
+            document.getElementById('ketQua').innerText = 'a chia hết cho b';
+        }else {
+            document.getElementById('ketQua').innerText = 'a không chia hết cho b';
+        }
+
+        }
+    </script>
+</html>

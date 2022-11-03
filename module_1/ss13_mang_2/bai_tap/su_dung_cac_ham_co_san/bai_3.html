@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+    <input id="nhapChuoi">
+    <button onclick="chuyen()">Chuyễn Đổi</button>
+    <p id="ketQua"></p>
+    <script>
+        function chuyen() {
+            let str = document.getElementById('nhapChuoi').value;
+            let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+            let result = [];
+            for (let x = 0; x < str.length; x++) {
+                if (UPPER.indexOf(str[x]) !== -1) {
+                    result.push(str[x].toLowerCase());
+                } else if (LOWER.indexOf(str[x]) !== -1) {
+                    result.push(str[x].toUpperCase());
+                } else {
+                    result.push(str[x]);
+                }
+            }
+            document.getElementById("ketQua").innerText = result.join('');
+        }
+    </script>
+</body>
+</html>

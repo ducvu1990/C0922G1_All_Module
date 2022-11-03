@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table border="0" style="float: right ;width: 50%">
+    <tr>
+        <th colspan="6"><h1>Quản lý thông tin học sinh</h1></th >
+    </tr>
+    <tr>
+        <th>mã số sinh viên</th>
+        <th>tên học sinh</th>
+        <th>Ngày sinh</th>
+        <th>lớp</th>
+        <th>giới tính</th>
+        <th></th>
+    </tr>
+    <tbody id="danhsach">
+
+    </tbody>
+</table>
+<h1>THÔNG TIN HỌC SINH</h1>
+<table border="0" style="width:30%">
+    <tr>
+        <td>Mã sinh viên</td>
+        <td><input type="text" id="id"></td>
+    </tr>
+    <tr>
+        <td>Tên học sinh</td>
+        <td><input type="text" id="ten"></td>
+    </tr>
+    <tr>
+        <td>Ngày sinh</td>
+        <td><input type="date" id="ngaysinh"></td>
+    </tr>
+    <tr>
+        <td>Lớp</td>
+        <td><input type="text" id="lop"></td>
+    </tr>
+    <tr>
+        <td>Giới tính</td>
+        <td><input type="text" id="gioitinh"></td>
+    </tr>
+
+    <tr>
+        <th colspan="2">
+            <button type="button" style="background-color: forestgreen" onclick="them()"> ADD</button>
+        </th>
+    </tr>
+</table>
+<script>
+    class HocSinh {
+        constructor(id, ten, ngaysinh, lop, gioitinh) {
+            this.id = id;
+            this.ten = ten;
+            this.ngaysinh = ngaysinh;
+            this.lop = lop;
+            this.gioitinh = gioitinh
+        }
+
+        getId() {
+            return this.id
+        }
+
+        getTen() {
+            return this.ten
+        }
+
+        getNgaysinh() {
+            return this.ngaysinh
+        }
+
+        getLop() {
+            return this.lop;
+        }
+
+        getGioiTinh() {
+            return this.gioitinh
+        }
+
+        setId(id) {
+            this.id = id
+        }
+
+        setTen(ten) {
+            this.ten = ten
+        }
+
+        setNgaySinh(ngaysinh) {
+            this.ngaysinh = ngaysinh
+        }
+
+        setLop(lop) {
+            this.lop = lop;
+        }
+
+        setGioiTinh(gioitinh) {
+            this.gioitinh = gioitinh
+        }
+    }
+
+    class QuanLyHocsinh {
+        constructor(arr) {
+            this.hocsinh = arr;
+        }
+
+        danhSach() {
+            let table = ''
+            for (let i = 0; i < this.hocsinh.length; i++) {
+                table += ' <tr>\n' +
+                    '        <th>' + this.hocsinh[i].id + '</th>\n' +
+                    '        <th>' + this.hocsinh[i].ten + '</th>\n' +
+                    '        <th>' + this.hocsinh[i].ngaysinh + '</th>\n' +
+                    '        <th>' + this.hocsinh[i].lop + '</th>\n' +
+                    '        <th>' + this.hocsinh[i].lop + '</th>\n' +
+                    '       <th><button type="button" onclick="xoa(' + i + ')">Delete</button></th>\n' +
+                    '    </tr>'
+            }
+            document.getElementById('danhsach').innerHTML = table
+        }
+
+        them(hocSinh1) {
+            this.hocsinh.push(hocSinh1)
+        }
+        delete(i) {
+            this.hocsinh.splice(i,1)
+        }
+    }
+
+    let arr = [];
+    let quanLi = new QuanLyHocsinh(arr);
+
+    function them() {
+        let id = document.getElementById('id').value;
+        let ten = document.getElementById('ten').value;
+        let ngaySinh = document.getElementById('ngaysinh').value;
+        let lop = document.getElementById('lop').value;
+        let gioiTinh = document.getElementById('gioitinh').value;
+        let hocSinh1 = new HocSinh(id, ten, ngaySinh, lop, gioiTinh);
+        quanLi.them(hocSinh1);
+        quanLi.danhSach()
+        clear()
+    }
+
+    function clear() {
+        document.getElementById('id').value = '';
+        document.getElementById('ten').value = '';
+        document.getElementById('ngaysinh').value = '';
+        document.getElementById('lop').value = '';
+        document.getElementById('gioitinh').value = '';
+    }
+
+    function xoa(i) {
+        quanLi.delete(i);
+        quanLi.danhSach();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+
+    <h3>Hãy đoán thử xem</h3><br>
+    <button onclick="choi()" id="choi">Chơi</button>
+
+    <script>
+        function choi() {
+            let canhDuoi = parseInt(prompt("Nhập vào khoảng muốn chơi từ:"));
+            let canhTren = parseInt(prompt("Đến:"));
+            let random = Math.floor( Math.random() * (canhTren-canhDuoi) + canhDuoi );
+            for (let i = 1; i <=3 ; i++) {
+                let soDoan = parseInt(prompt("Nhập vào số bạn đoán:"));
+                if (soDoan == random) {
+                    alert("chúc mừng");
+                    break;
+                }else if (soDoan>random) {
+                    alert("Số bạn đoán hơi lớn");
+                }else {
+                    alert("Số bạn đoán hơi nhỏ");
+                }
+                if (i == 3) {
+                    alert("Bạn đã thua");
+                    replay();
+                }
+            }
+        }
+        function replay() {
+            document.getElementById("choi").innerText = "Chơi lại";
+        }
+
+
+    </script>
+</body>
+</html>

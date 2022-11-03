@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cau 2</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let chuoi = prompt("Nhập chuổi").split("");
+    let assign = "[";
+    for (let i = 0; i < chuoi.length; i++) {
+        assign += chuoi[i];
+    }
+    assign += "]";
+    function kiemTraDoiXung(mang){
+        let booleans = true;
+        for (let i = 0; i < mang.length; i++) {
+            if (mang[i] !== mang[mang.length - 1 - i]){
+                booleans = false;
+                break;
+            }
+        }
+        if (booleans){
+            alert("Chuổi " + assign + " là chuổi đối xứng");
+        }else {
+            alert("Chuổi " + assign + " là chuổi không đối xứng");
+        }
+    }
+    kiemTraDoiXung(chuoi);
+</script>

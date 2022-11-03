@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-9</title>
+</head>
+<body>
+    Nhập cạnh a: <input id="canhA"><br>
+    Nhập cạnh b: <input id="canhB"><br>
+    Nhập cạnh c: <input id="canhC"><br>
+    <button onclick="kiemTra()">Kiểm Tra</button><br>
+    Kết quả: <span id="ketQua"></span>
+</body>
+    <script>
+        function kiemTra() {
+            let a = parseFloat(document.getElementById('canhA').value);
+            let b = parseFloat(document.getElementById('canhB').value);
+            let c = parseFloat(document.getElementById('canhC').value);
+            if (a*b*c > 0 && a+b>c && a+c>b && b+c>a) {
+                document.getElementById('ketQua').innerText = 'a,b,c là cạnh của tam giác';
+            }else {
+                document.getElementById('ketQua').innerText = 'a,b,c không phải là cạnh tam giác';
+            }
+        }
+    </script>
+</html>

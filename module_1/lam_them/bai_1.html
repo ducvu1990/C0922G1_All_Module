@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let nSoNguyen = parseInt(prompt("Nhập độ dài n của mảng."));
+    let arr = [];
+    for (let i = 0; i < nSoNguyen; i++) {
+        let assign = +prompt("Nhập số thứ arr[" + (i+1) + "]");
+        arr.push(assign);
+    }
+// //1
+//     let sum = 0;
+//     let coun = 0;
+//     let medium;
+//     for (let i = 0; i < arr.length; i+=2) {
+//         if (arr[i] % 2 === 1){
+//             sum += arr[i];
+//             coun += 1;
+//         }
+//     }
+//     medium = sum / coun;
+//     alert(medium);
+// //2
+//     let max = arr[0];
+//     for (let i = 1; i < arr.length; i++) {
+//         if (max<arr[i]){
+//             max=arr[i];
+//         }
+//     }
+//     alert(max);
+// //3
+//     let min = arr[0];
+//     let indes = "";
+//     for (let i = 1; i < arr.length; i++) {
+//         if (min>arr[i]){
+//             min = arr[i];
+//         }
+//     }
+//     for (let i = 0; i < arr.length; i++) {
+//         if (min === arr[i]){
+//             indes += i +",";
+//         }
+//     }
+//     alert(indes);
+// //4
+//         let countTheNuber = 0;
+//         for (let i = 0; i < arr.length; i++) {
+//             if (Math.sqrt(arr[i]) % 1 === 0) {
+//                 countTheNuber +=1 ;
+//             }
+//         }
+//         alert(countTheNuber);
+//5
+    function kiemTraSoNguyenTo(a) {
+        let kiemTra = true;
+        for (let i = 2; i <= Math.sqrt(a); i++) {
+            if (a % i === 0) {
+                kiemTra = false;
+                return kiemTra;
+            }
+
+        }
+        return kiemTra;
+    }
+    let counts = "";
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) {
+        }else {
+            let soNguyenTo = kiemTraSoNguyenTo(arr[i]);
+            if (soNguyenTo === true) {
+                counts += arr[i] + ",";
+            }
+        }
+
+    }
+    alert(counts);
+// //6
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] <0 ) {
+//                 arr[i] = 0;
+//         }
+//     }
+//     alert(arr);
+// //7
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] <0 ) {
+//             arr.splice(i,1);
+//         }
+//     }
+//     alert(arr);
+// //8
+//     function sapXep(a,b) {
+//         return a-b;
+//     }
+//     arr.sort(sapXep);
+//     alert(arr);
+</script>

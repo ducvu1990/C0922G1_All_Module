@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 3</title>
+</head>
+<body>
+    <input id="so">
+    <button onclick="kTra()">Kiểm tra</button><br>
+    Kết quả: <span id="ketQua"></span>
+</body>
+    <script>
+        function kTra() {
+        let soNguyen = parseInt(document.getElementById('so').value);
+        if (soNguyen > 0) {
+            document.getElementById('ketQua').innerText = 'số ' + soNguyen + ' lớn hơn 0';
+        }else if (soNguyen < 0) {
+            document.getElementById('ketQua').innerText = 'số ' + soNguyen + ' nhỏ hơn 0';
+        }else {
+            document.getElementById('ketQua').innerText = 'là số 0;'
+        }
+        }
+    </script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt('Nhập vào độ dài mảng'));
+        let a = [];
+        let dau = 0;
+        let cuoi = n - 1;
+        for (let i = 0; i < n; i++) {
+            a[i] = parseInt(prompt('Nhhập vào a[' + i +']'));
+        }
+        while (dau < cuoi) {
+            let gan = a[dau];
+            a[dau] = a[cuoi];
+            a[cuoi] = gan;
+            dau++;
+            cuoi--;
+        }
+        document.write(a);
+    </script>
+</body>
+</html>

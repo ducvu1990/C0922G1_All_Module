@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-8</title>
+</head>
+<body>
+    Nhập vào số tuổi: <input id="tuoi"><br>
+    <button onclick="kiemTra()">Kiểm tra</button><br>
+    Tuổi nhập vào <span id="ketQua"></span>
+</body>
+    <script>
+        function kiemTra() {
+            let t = parseInt(document.getElementById('tuoi').value);
+            if (t > 0 && t < 120) {
+                document.getElementById('ketQua').innerText = ' là tuổi của người';
+            }else {
+                document.getElementById('ketQua').innerText = 'không phải tuổi người';
+            }
+        }
+    </script>
+</html>

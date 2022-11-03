@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+    <script>
+        let chuoi = prompt('nhap chuoi');
+        let arr = chuoi.split(' ');
+        let dem = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !==  "") {
+                dem += 1;
+            }
+        }
+        document.write('Chuổi có ' + dem + ' từ');
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính thuế thu nhập và lương ròng</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let nhapLuong = parseFloat(prompt("nhập lương nhân viên"));
+    let tienThue;
+    let luongRong;
+    if (nhapLuong >= 15000000) {
+        tienThue = nhapLuong * 0.2;
+    }else if (nhapLuong >= 7000000) {
+        tienThue = nhapLuong * 0.1;
+    }else {
+        tienThue = nhapLuong * 0.05;
+    }
+    luongRong = nhapLuong - tienThue;
+    alert("số tiền lương thục sư là: " + luongRong);
+</script>

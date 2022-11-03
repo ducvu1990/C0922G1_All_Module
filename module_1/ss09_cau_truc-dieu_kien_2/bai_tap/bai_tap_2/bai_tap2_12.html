@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-12</title>
+</head>
+<body>
+// F=P(1+i)^n
+// F: số tiền nhận được khi rut
+// P: số tiền gốc ban đầu
+// i: lãi suất trong tháng
+// n: số tháng tính lãi suất
+<br>
+Tiền gốc: <input id="tienGoc"><br>
+Lãi suất: <input id="laiSuat"><br>
+Số tháng tính lãi suất:<input id="soThang"><br>
+    <button onclick="tienNhan()">Tính tiền nhận</button>
+Số tiền nhận là: <span id="tienDuocNhan"></span>
+</body>
+<script>
+    function tienNhan() {
+        let tienGoc = parseFloat(document.getElementById('tienGoc').value);
+        let laiSuat = parseFloat(document.getElementById('laiSuat').value);
+        let  soThang = parseFloat(document.getElementById('soThang').value);
+        let tienDuocNhan = tienGoc * (1 + laiSuat) ^ soThang;
+        document.getElementById('tienDuocNhan').innerText = tienDuocNhan;
+    }
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+</head>
+<body>
+    <script>
+        let a = prompt('Nhập chuổi 1');
+        let b = prompt('Nhập chuổi 2');
+        let booleans = true;
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== b[i]) {
+                booleans = false;
+                break;
+            }
+        }
+        if (booleans == false) {
+            document.write('2 chuổi không giống nhau');
+        }else {
+            document.write('2 chuổi là giống nhau');
+        }
+    </script>
+</body>
+</html>

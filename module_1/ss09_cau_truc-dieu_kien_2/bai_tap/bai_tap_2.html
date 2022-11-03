@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2</title>
+</head>
+<body>
+    <input id="soTuoi">
+    <button onclick="tuoi()">Kiểm tra</button>
+    <br>
+    Kết quả: <span id="ketQua"></span>
+</body>
+<script>
+    function tuoi() {
+        let t = parseInt(document.getElementById('soTuoi').value);
+        if (t <= 15) {
+            document.getElementById('ketQua').innerText = 'Không đủ điều kiện vào học lớp 10';
+        }else {
+            document.getElementById('ketQua').innerText = 'Đủ điều kiện';
+        }
+    }
+</script>
+</html>

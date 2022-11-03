@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 4</title>
+</head>
+<body>
+    Nhập số a<input id="soA"><br>
+    Nhập số b<input id="soB"><br>
+    Nhập số c<input id="soC"><br>
+    <button onclick="kiemTra()">Kiểm tra</button><br>
+    Kết Quả: <span id="ketQua"></span>
+</body>
+    <script>
+        function kiemTra() {
+            let a = parseInt(document.getElementById('soA').value);
+            let b = parseInt(document.getElementById('soB').value);
+            let c = parseInt(document.getElementById('soC').value);
+            var max = a;
+            if (max < b) {
+                max = b
+            }if (max < c) {
+                max = c
+            }
+            document.getElementById('ketQua').innerText = 'Số lớn nhất là: ' + max;
+        }
+    </script>
+</html>

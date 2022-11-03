@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let mang = [];
+    let doDai = +prompt("Nhập độ dài mảng");
+    for (let i = 0; i < doDai; i++) {
+        let assing = +prompt("Nhập số thứ " + i);
+        while (mang.indexOf(assing) !== -1) {
+            assing = +prompt("Trùng, mời nhập lại.");
+        }
+        mang.push(assing);
+    }
+    alert(mang)
+</script>

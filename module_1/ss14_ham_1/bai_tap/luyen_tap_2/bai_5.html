@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+</head>
+<body>
+    <script>
+        debugger
+        let arr = [];
+        for (let i = 0; i < 3; i++) {
+            arr[i] = parseInt(prompt("Nhập vào giá trị a[" + i +"]"));
+        }
+        function timSoNhoNhat() {
+            let min = arr[0];
+            for (let i = 1; i < 3; i++) {
+                if (min > arr[i]) {
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+        let nhoNhat = timSoNhoNhat();
+        alert("số nhỏ nhất là: " + nhoNhat);
+    </script>
+</body>
+</html>

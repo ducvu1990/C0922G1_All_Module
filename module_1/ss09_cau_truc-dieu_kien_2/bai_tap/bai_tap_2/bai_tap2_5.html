@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-5</title>
+</head>
+<body>
+    Nhập vào cạnh a: <input id="canhA"><br>
+    Nhập vào cạnh b: <input id="canhB"><br>
+    <button onclick="dienTich()">Tính diện tích</button><br>
+    Diện tích là: <span id="ketQua"></span>
+</body>
+    <script>
+        function dienTich() {
+            let a = parseFloat(document.getElementById('canhA').value);
+            let b = parseFloat(document.getElementById('canhB').value);
+            let dienTich = 1/2 * (a * b);
+            document.getElementById('ketQua').innerText = dienTich;
+        }
+    </script>
+</html>

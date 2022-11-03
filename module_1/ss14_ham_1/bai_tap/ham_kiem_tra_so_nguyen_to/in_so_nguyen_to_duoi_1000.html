@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In số nguyên tố dưới 10000</title>
+</head>
+
+<body>
+<script>
+    function timSoNguyenTo(number) {
+        let kiemTra = false;
+        for (let i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                kiemTra = true;
+                return kiemTra;
+            }
+        }
+        return kiemTra
+    }
+    let gan = false;
+    for (let i = 2; i < 10000; i++) {
+        gan = timSoNguyenTo(i);
+        if (gan == false) {
+            document.write(i + "<br>");
+        }
+    }
+</script>
+</body>
+</html>

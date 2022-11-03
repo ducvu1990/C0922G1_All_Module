@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+    <script>
+    let a = [];
+    let n = parseInt(prompt("nhap vao chieu dai mang"));
+    let chuoiA = "";
+    for (let i = 0; i < n; i++) {
+        a[i] = prompt("nhap gia tri a[" +i + "]");
+    }
+
+    for (let i = 0; i < n; i++) {
+       if (i == n - 1) {
+           chuoiA += a[i];
+       }else {
+           chuoiA += a[i] + ", ";
+       }
+    }document.write("[" + chuoiA + "]");
+</script>
+</body>
+</html>

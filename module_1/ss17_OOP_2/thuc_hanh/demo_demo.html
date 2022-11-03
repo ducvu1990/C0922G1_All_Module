@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let num = [];
+    for (let i = 0; i < 4; i++) {
+        num[i] = +prompt("Nhập chuỗi a");
+    }
+
+    let num1 = [];
+    for (let i = 0; i < 4; i++) {
+        num1[i] = +prompt("Nhập chuõi b");
+    }
+    for (let i=0;i<num1.length;i++){
+        for (let j=0;j<num.length;j++){
+            if(num1[i]==num[j]){
+                num1.splice(i,1);
+                break;
+            }
+
+        }
+    }document.write(num1);
+</script>

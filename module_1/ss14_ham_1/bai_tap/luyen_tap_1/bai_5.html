@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+</head>
+<body>
+<script>
+    let ngoiSao = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let chomSao = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    function chuyenDoiChomSao(sao) {
+        let viTri;
+        for (let i = 0; i < ngoiSao.length; i++) {
+            if (sao == ngoiSao[i]) {
+                viTri = i;
+                return viTri;
+            }
+        }
+    }
+    let sao = prompt("Nhập vào tên ngôi sao");
+    let indexs = chuyenDoiChomSao(sao);
+    if (indexs !== undefined) {
+        alert(chomSao[indexs]);
+    }else {
+        alert("Bạn nhập vào không phải tên ngôi sao");
+    }
+</script>
+</body>
+</html>

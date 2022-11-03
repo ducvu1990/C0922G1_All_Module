@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>thuc hanh 3</title>
+</head>
+<body>
+    <script>
+        let a = prompt("nhap gia tri can tim");
+        let z = [1,5,3,4,5,7,9,14];
+        let n=0;
+        for (let i = 0; i < z.length-1 ; i++) {
+
+            if (a == z[i]) {
+                document.write("gia tri nam o: z[" + i + "]<br>");
+                n +=1;
+            }
+        }
+        if (n==0) {
+            document.write("gia tri nhap vao k co trong mang.");
+        }
+    </script>
+</body>
+</html>

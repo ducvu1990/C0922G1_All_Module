@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhập diểm</title>
+</head>
+<body>
+        <script>
+            let vatly;
+            let hoa;
+            let sinh;
+            vatly = prompt("nhập diểm vật");
+            hoa = prompt("Nhập điểm Hóa");
+            sinh = prompt("Nhập điểm Sinh");
+            let vl = parseInt(vatly);
+            let  h = parseInt(hoa);
+            let  s = parseInt(sinh);
+            let medium = (vl+h+s)/3;
+            let tatol = vl+h+s;
+            document.write("Điểm trung bình là:" +medium);
+            document.write("<br/>");
+            document.write("Tổng điểm là:" +tatol);
+        </script>
+</body>
+</html>

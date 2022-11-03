@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let n = parseInt(prompt("nhap vao chieu dai mang"));
+    for (let i = 0; i < n; i++) {
+        a[i] = prompt("nhap gia tri a[" +i + "]");
+    }
+
+    for (let i = 0; i < n; i++) {
+        if (a[i] % 2 == 0 && a[i+1] % 2 == 0) {
+            console.log()
+            a[i+1] = "-" + a[i+1].toString();
+        }
+    }document.write(a);
+</script>
+</body>
+</html>

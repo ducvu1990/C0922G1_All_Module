@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-6</title>
+</head>
+<body>
+    <p>ax + b = 0</p><br>
+    Nhập a: <input id="soA"><br>
+    Nhập b: <input id="soB"><br>
+    <button onclick="timX()">Tìm X</button><br>
+    Kết quả x là: <span id="x"></span>
+</body>
+    <script>
+        function timX() {
+            let a = parseFloat(document.getElementById('soA').value);
+            let b = parseFloat(document.getElementById('soB').value);
+            let ketQua = -b / a;
+            document.getElementById('x').innerText = ketQua;
+        }
+    </script>
+</html>

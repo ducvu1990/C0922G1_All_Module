@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-7</title>
+</head>
+<body>
+    <p>ax^2 + bx +c = 0</p><br>
+    Nhập a: <input id="soA"><br>
+    Nhập b: <input id="soB"><br>
+    Nhập c: <input id="soC"><br>
+    <button onclick="timX()">Tìm X</button><br>
+    Kết quả x là: <span id="ketQua"></span>
+</body>
+    <script>
+        function timX() {
+            let a = parseFloat(document.getElementById('soA').value);
+            let b = parseFloat(document.getElementById('soB').value);
+            let c = parseFloat(document.getElementById('soC').value);
+            let t= (b * b) - (4 * a * c);
+            var x1 = 0;
+            var x2 = 0;
+            if (t > 0) {
+                x1 = (-b + Math.sqrt(t)) / (2 * a);
+                x2 = (-b - Math.sqrt(t)) / (2 * a);
+                document.getElementById('ketQua').innerText = 'x1 = ' + x1 + ' và ' + 'x2 là ' + x2;
+            }else if (t == 0) {
+                x1 = -b / (2 * a);
+                x2 = x1;
+                document.getElementById('ketQua').innerText = 'x1 = x2 =' + x2;
+            }else {
+                document.getElementById('ketQua').innerText = 'Phương trình vô nghiệm';
+            }
+
+        }
+    </script>
+</html>

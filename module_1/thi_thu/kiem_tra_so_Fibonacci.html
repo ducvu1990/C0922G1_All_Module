@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra số FIBONACCI</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arr = [];
+    let doDai = +prompt("Nhập vào độ dài mảng");
+    for (let i = 0; i < doDai; i++) {
+        arr.push(+prompt("Nhập số thứ " +i));
+    }
+
+    function kiemTraFibonacci(so){
+        let fibonacci = [0,1];
+        let i = 1;
+        while (fibonacci[i] < so){
+            fibonacci.push(fibonacci[i-1] + fibonacci[i]);
+            i++;
+        }
+        return so === fibonacci[fibonacci.length - 1] || so === fibonacci[fibonacci.length - 2] || so === 0 || so === 1;
+    }
+
+    function duRaMangFibonacciTangDan(arrays) {
+        let arrFibonacci = [];
+        for (let i = 0; i < arrays.length; i++) {
+            if (kiemTraFibonacci(arrays[i])) {
+                arrFibonacci.push(arrays[i]);
+            }
+        }
+        arrFibonacci.sort(function (a,b) {
+            return a-b;
+        })
+        alert(arrFibonacci)
+    }
+    duRaMangFibonacciTangDan(arr);
+
+</script>

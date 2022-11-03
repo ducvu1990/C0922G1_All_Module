@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm phân số lớn nhất</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let n = parseInt(prompt("Nhập số lượng phân số."));
+    let numerators = [];
+    for (let i = 0; i < n; i++) {
+        numerators[i] = parseInt(prompt("Nhập tử số của số thứ " + i));
+    }
+    let denominators = [];
+    for (let i = 0; i < n; i++) {
+        denominators[i] = parseInt(prompt("Nhập mẩu số của số thứ" + i));
+        while (denominators[i] === 0) {
+            denominators[i] = parseInt(prompt("Mẩu số không thể bằng 0. Mời nhập lại."));
+        }
+    }
+    let chiSo;
+    let max = numerators[0] / denominators[0];
+    for (let i = 1; i < n; i++) {
+        if (max < numerators[i] / denominators[i]) {
+            max = numerators[i] / denominators[i];
+            chiSo = i;
+        }
+    }if (chiSo !== undefined){
+        alert("Phân số lớn nhất là phân số thứ " + chiSo);
+    }else {
+        alert("Phân số lớn nhất là phân số thứ 0");
+    }
+
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-11</title>
+</head>
+<body>
+    Nhập vào số tiền thu nhập: <input id="soTienThuNhap"><br>
+    <button onclick="tienThue()">Tính thuế thu nhập</button><br>
+    Số tiền là: <span id="soTien"></span>
+</body>
+<script>
+    function tienThue() {
+        let thuNhap = parseInt(document.getElementById('soTienThuNhap').value);
+        var soTien;
+        if (thuNhap>960) {
+            soTien = thuNhap * 0.35;
+            document.getElementById('soTien').innerText = soTien;
+        }else if (thuNhap>624) {
+            soTien = thuNhap * 0.3;
+            document.getElementById('soTien').innerText = soTien;
+        }else if (thuNhap>384) {
+            soTien = thuNhap * 0.25;
+            document.getElementById('soTien').innerText = soTien;
+        }else if (thuNhap>216) {
+            soTien = thuNhap * 0.2;
+            document.getElementById('soTien').innerText = soTien;
+        }else if (thuNhap>120) {
+            soTien = thuNhap * 0.15;
+            document.getElementById('soTien').innerText = soTien;
+        }else if (thuNhap>60) {
+            soTien = thuNhap * 0.1;
+            document.getElementById('soTien').innerText = soTien;
+        }else {
+            soTien = thuNhap * 0.05;
+            document.getElementById('soTien').innerText = soTien;
+        }
+    }
+</script>
+</html>

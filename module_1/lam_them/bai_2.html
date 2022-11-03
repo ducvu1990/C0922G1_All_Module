@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 2</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let mangN = [];
+    let n = +prompt("Nhập độ dài n của mảng");
+    for (let i = 0; i < n; i++) {
+        let assign = +prompt("Nhập giá trị thư " + (i+1));
+        mangN.push(assign);
+    }
+    let booleans = true;
+    for (let i = 0; i < mangN.length; i++) {
+        if (mangN[i] !== mangN[mangN.length - 1 - i]){
+            booleans = false;
+            break;
+        }
+    }
+    if (booleans){
+        alert("Mảng đối xứng");
+    }else {
+        alert("Mảng không đối xứng");
+    }
+</script>

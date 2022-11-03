@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<input id="nhapTu">
+<button onclick="traTu()">Tra Từ</button>
+<p id="ketQua"></p>
+<script>
+    function traTu() {
+        let tuNhap = document.getElementById('nhapTu').value;
+        let anh = ["hello", "goodbye", "thanks"];
+        let viet = ["xin chao", "tạm biệt", "cám ơn"];
+        let dich = "";
+        for (let i = 0; i < anh.length; i++) {
+            if (tuNhap == anh[i]) {
+                dich = viet[i];
+                document.getElementById('ketQua').innerText = dich;
+                break;
+            }
+            document.getElementById('ketQua').innerText = "Từ bạn nhập không có trong Từ điển";
+        }
+    }
+
+</script>
+</body>
+</html>

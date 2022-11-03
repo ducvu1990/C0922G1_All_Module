@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sắp xếp</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let arra = [6,5,4,3,2,1,0]
+    function sapXep(arr) {
+        let assign = 0;
+        for (let i = arr.length - 1; i >= 0; i--) {
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[j+1] - arr[j] < 0) {
+                    assign = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = assign;
+                    document.write(" lan "+ i+ " cua "+ j + ": " +arr + "<br>");
+                }
+            }
+        }
+        return arr;
+    }
+    alert(sapXep(arra))
+</script>

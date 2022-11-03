@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bài 1</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let dem = 0;
+    let soLonHonMuoi = [];
+    for (let i = 0; i < 10; i++) {
+        a[i] = prompt('Nhhập vào a[' + i +']');
+    }
+    for (let j = 0; j < a.length; j++) {
+        if (a[j] >= 10) {
+            dem += 1;
+            soLonHonMuoi.push(a[j]);
+        }
+    }
+    if (dem > 0) {
+        document.write('Có ' + dem + ' số hơn 10, đó là: ');
+        for (let n = 0; n < soLonHonMuoi.length; n++) {
+            document.write(soLonHonMuoi[n] + ", ");
+        }
+    }else {
+        document.write('Không có số nào lớn hơn 10.');
+    }
+</script>
+</body>
+</html>

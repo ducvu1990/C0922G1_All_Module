@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng máy tính</title>
+</head>
+<body>
+    <input id="soThuNhat"><input id="soThuHai">
+    <br>
+    <button onclick="cong()">Addition(+)</button>
+    <button onclick="tru()">Subtraction(-)</button>
+    <button onclick="nhan()">Multiplicaton(X)</button>
+    <button onclick="chia()">Division(/)</button>
+<p id="demo">kết quả là</p>
+</body>
+    <script>
+        function cong() {
+            let ketQua;
+            let a = parseInt(document.getElementById("soThuNhat").value);
+            let b = parseInt(document.getElementById("soThuHai").value);
+            ketQua = a + b;
+            document.getElementById("soThuHai").value = ketQua;
+        }
+        function tru() {
+            let ketQua;
+            let a = parseInt(document.getElementById("soThuNhat").value);
+            let b = parseInt(document.getElementById("soThuHai").value);
+            ketQua = a - b;
+            document.getElementById("demo"). = ketQua;
+        }
+        function nhan() {
+            let ketQua;
+            let a = parseInt(document.getElementById("soThuNhat").value);
+            let b = parseInt(document.getElementById("soThuHai").value);
+            ketQua = a * b;
+            alert(ketQua);
+        }
+        function chia() {
+            let ketQua;
+            let a = parseInt(document.getElementById("soThuNhat").value);
+            let b = parseInt(document.getElementById("soThuHai").value);
+            ketQua = a / b;
+            alert(ketQua);
+        }
+    </script>
+</html>

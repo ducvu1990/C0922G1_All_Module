@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo cụm từ viết tắt</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let stringss = prompt("Nhập chuổi");
+    let strings = stringss.trim().split(" ");
+    for (let i = 0; i < strings.length;) {
+        if (strings[i] === "" && strings[i+1] === "") {
+            strings.splice(i,1);
+            continue;
+        }
+        i++;
+    }
+
+    function vietTat(stringss) {
+        if (stringss.length === 1) {
+            return "Chuỗi chỉ có 1 từ nên không cần viết tắt";
+        }else {
+            for(let i = 0; i< stringss.length; i++){
+                if (stringss[i] !== ""){
+                    stringss[i] = stringss[i][0].toUpperCase();
+                }
+            }
+            return "Từ viết tắt của chuổi là: " +stringss.join(" ");
+        }
+    }
+    let a = vietTat(strings);
+    alert(a);
+
+</script>

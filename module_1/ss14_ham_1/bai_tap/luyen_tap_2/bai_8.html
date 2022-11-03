@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 8</title>
+</head>
+<body>
+    <script>
+        let doDai = parseInt(prompt("Nhập vào dộ dài mảng"));
+        let arr = [];
+        for (let i = 0; i < doDai; i++) {
+            arr[i] = parseInt(prompt("Nhập vào số nguyên a[" + i + "]"));
+        }
+        function daoNguoc() {
+            arr.reverse();
+            document.write(arr);
+        }
+        daoNguoc();
+    </script>
+</body>
+</html>

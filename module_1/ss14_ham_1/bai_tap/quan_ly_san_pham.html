@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+</head>
+
+<body>
+    <p>Add New Product</p>
+    <table>
+        <tr style="background-color:skyblue">
+            <td><input id="maHang"></td>
+            <td colspan="2"><button value="Add" onclick="themMaHang()">Add</button></td>
+        </tr>
+    </table>
+    <p>Display All Product</p>
+    <table>
+        <tr>
+            <td><b>Product Name</b></td>
+            <th colspan="2" align="right"><p id="tongSanPham"></p></th>
+        </tr>
+        <tbody id="arrproduct"></tbody>
+    </table>
+</body>
+</html>
+<script>
+    let sanPham = ["Sony Xperia", "Samsung Galaxy", "Nokia 6"];
+    function taoMangSanPham() {
+        let congChuoi = "";
+        for (let i = 0; i < sanPham.length; i++) {
+            congChuoi += " <tr>\n" +
+                "        <td>" + sanPham[i] + "</td>\n" +
+                "        <td><button onclick='edit(" + i + ")' style='background: chartreuse'>Edit</button></td>\n" +
+                "        <td><button onclick='deletes(" + i + ")' style='background: chartreuse' >Delete</button></td>\n" +
+                "    </tr>";
+        }
+        document.getElementById("arrproduct").innerHTML = congChuoi;
+        document.getElementById("tongSanPham").innerText = sanPham.length + " sp";
+    }
+    taoMangSanPham()
+    function themMaHang() {
+        let them = document.getElementById('maHang').value;
+        sanPham.push(them);
+        taoMangSanPham();
+        document.getElementById('maHang').value = "";
+    }
+    function deletes(i) {
+        sanPham.splice(i,1);
+        taoMangSanPham();
+    }
+    function edit(i) {
+        let suaDoi = prompt("Nhập vào sửa đổi", sanPham[i]);
+        if (suaDoi !== null){
+            sanPham[i] = suaDoi;
+        }
+        taoMangSanPham();
+    }
+</script>

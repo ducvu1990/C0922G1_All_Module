@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm số lượng ký t chung</title>
+</head>
+<body>
+    <script>
+        let xau1 = prompt("nhập xau 1");
+        let xau2 = prompt("nhập xau 2");
+        let list1 = xau1.split("");
+        let list2 = xau2.split("");
+        let dem = 0;
+        for (let i = 0; i < list1.length; i++) {
+            for (let j = i+1; j < list1.length;) {
+                if (list1[i] === list1[j]){
+                    list1.splice(j,1);
+                }else {
+                    j++;
+                }
+            }
+        }
+        for (let i = 0; i < list2.length; i++) {
+            for (let j = i+1; j < list2.length;) {
+                if (list2[i] === list2[j]){
+                    list2.splice(j,1);
+                }else {
+                    j++;
+                }
+            }
+        }
+        for (let i = 0; i < list1.length; i++) {
+            for (let j = 0; j < list2.length; j++) {
+                if (list1[i] === list2[j]) {
+                    dem +=1;
+                }
+            }
+
+        }
+        alert("Số ký tự trung nhau là " + dem);
+    </script>
+</body>
+</html>

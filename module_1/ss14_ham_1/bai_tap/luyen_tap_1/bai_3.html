@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 3</title>
+</head>
+<body>
+<script>
+    function kiemTraTinhTong(a,b) {
+        let sum = 0;
+        if (a > b) {
+            alert("Số thứ nhất đang lớn hơn số thứ hai");
+        }else {
+            sum = a + b;
+            return sum;
+        }
+    }
+    let a = parseInt(prompt("Nhập số a: "));
+    let b = parseInt(prompt("Nhập số b: "));
+    let tong;
+    tong= kiemTraTinhTong(a,b);
+    document.write(tong);
+</script>
+</body>
+</html>

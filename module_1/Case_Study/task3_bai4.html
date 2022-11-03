@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyễn số thành chữ</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let a = prompt("Nhập vào số").split("");
+    let so = [0,1,2,3,4,5,6,7,8,9];
+    let chu = ["Không", "Một ", "Hai ", "Ba ", "Bốn", "Năm ", "Sáu", "Bảy ", "Tám ", "Chín "];
+    for (let i = 0; i < a.length; i++) {
+        for (let j = 0; j < so.length; j++) {
+            if (parseInt(a[i]) === so[j]) {
+                document.write(chu[j] + " ");
+            }
+        }
+    }
+</script>

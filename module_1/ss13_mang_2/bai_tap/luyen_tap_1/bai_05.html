@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt('Nhập vào độ dài mảng'));
+        let a = [];
+        let dem = 0;
+        for (let i = 0; i < n; i++) {
+            a[i] = parseInt(prompt('Nhhập vào a[' + i +']'));
+        }
+        for (let j = 0; j < n; j++) {
+            if (a[j] < 0) {
+                dem +=1;
+            }
+        }
+        document.write('Số lượng số nguyên âm: ' + dem);
+    </script>
+</body>
+</html>

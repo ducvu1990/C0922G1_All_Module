@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 5</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let manga = [];
+    let mangb = [];
+    let mangc = [];
+    let doDai = +prompt("Nhập n độ dài của mảng");
+    for (let i = 0; i < doDai; i++) {
+        let assign = +prompt("Nhập số thứ " + i);
+        manga.push(assign);
+    }
+    for (let i = 0; i < manga.length; i++) {
+        if (manga[i] % 2 ===0){
+            mangb.push(manga[i]);
+        }else {
+            mangc.push(manga[i]);
+        }
+    }
+    alert("mãng gốc " + manga+ "\n" + "mảng chẵn " + mangb + "\n" + "mảng lẻ " + mangc);
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+    <script>
+        let soLuong = parseInt(prompt("Nhập vào số lượng dãy số: "));
+        let i=1;
+        let tong = 0;
+        for (let N=7; i<=soLuong; N++) {
+            if (N % 7 == 0) {
+                tong = tong + N;
+                document.write(N + "<br>");
+                i += 1;
+            }
+        }
+        document.write("Tổng của " + soLuong + " số đầu tiên chia hết cho 7 là: " +tong);
+    </script>
+</body>
+</html>

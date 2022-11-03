@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+    <script>
+        let n = parseInt(prompt('Nhập vào độ dài mảng'));
+        let a = [];
+        let viTri = 0;
+        let tong = 0;
+        let trungBinh = 0;
+        for (let i = 0; i < n; i++) {
+            a[i] = parseInt(prompt('Nhhập vào a[' + i +']'));
+        }
+        let max = a[0];
+        for (let j = 0; j < n; j++) {
+            if (max < a[j]) {
+                max = a[j];
+                viTri = j;
+            }
+            tong = tong + a[j];
+        }
+        trungBinh = tong / n;
+        document.write('số lớn nhất là ' + max + ' ở vị trí a[' + viTri + ']<br>');
+        document.write('Giá trị trung bình của dãy là: ' + trungBinh);
+    </script>
+</body>
+</html>

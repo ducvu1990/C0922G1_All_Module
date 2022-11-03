@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 2</title>
+</head>
+<body>
+<input oninput="tang(this.value)">
+Kết Quả:<span id="traVe"></span>
+<script>
+    function tang(number) {
+        number = number * 1 + 1;
+        document.getElementById("traVe").innerHTML = number;
+    }
+</script>
+</body>
+</html>

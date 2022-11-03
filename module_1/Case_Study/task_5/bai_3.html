@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Min, Max</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function nhapMang2Chieu(){
+        let m = parseInt(prompt("Nhập M"));
+        let n = parseInt(prompt("Nhập N"));
+        let a = [];
+        for (let i = 0; i < m; i++) {
+            let newArr = [];
+            for (let j = 0; j < n; j++) {
+                let e = parseInt(prompt("Nhập giá trị a[" + i + "][" + j + "]"));
+                newArr.push(e);
+            }
+            a.push(newArr);
+        }
+        return a;
+    }
+    function min(mang) {
+        let min = mang[0][0];
+        for (let i = 0; i < mang.length; i++) {
+            for (let j = 0; j < mang[i].length; j++) {
+                if (min > mang[i][j]) {
+                    min = mang[i][j];
+                }
+            }
+        }
+        return min;
+    }
+    function max(mang) {
+        let max = mang[0][0];
+        for (let i = 0; i < mang.length; i++) {
+            for (let j = 0; j < mang[i].length; j++) {
+                if (max < mang[i][j]) {
+                    max = mang[i][j];
+                }
+            }
+        }
+        return max;
+    }
+    let arr = nhapMang2Chieu()
+    let a = min(arr);
+    let b = max(arr);
+    document.write("Số lớn nhất trong mảng là: " + b + "<br>Số nhỏ nhất trong mảng là: " + a + ".");
+</script>

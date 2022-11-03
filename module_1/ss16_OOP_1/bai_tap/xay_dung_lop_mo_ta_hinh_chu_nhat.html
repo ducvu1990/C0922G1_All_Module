@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp mô tả hình chử nhật</title>
+</head>
+<body>
+    <canvas id="hinhChuNhat" width="1000px" height="1000px"></canvas>
+    <p id="thongSo"></p>
+</body>
+</html>
+<script>
+    class HinhChuNhat {
+        constructor(x, y, chieuDai, chieuRong) {
+            this.x = x;
+            this.y = y;
+            this.chieuDai = chieuDai;
+            this.chieuRong = chieuRong;
+        }
+        toaDoX(x) {
+            this.x;
+        }
+        toaDoy(y) {
+            this.y;
+        }
+
+
+        setChieuDai(chieuDai) {
+            this.chieuDai = chieuDai;
+        }
+
+        setChieuRong(chieuRong) {
+            this.chieuRong = chieuRong;
+        }
+
+        dienTich() {
+            return this.chieuDai * this.chieuRong;
+        }
+
+        chuVi() {
+            return (this.chieuDai + this.chieuRong) * 2;
+        }
+
+        getHinhChuNhat() {
+            return "tọa độ x=" + this.x +', ' + "Tọa độ y=" + this.y +', chiều dài= ' +this.chieuDai + ', Chiều rộng= '
+                + this.chieuRong + ", S = " + this.chieuDai * this.chieuRong + ', ChuVi= ' + (this.chieuDai + this.chieuRong) * 2;
+        }
+    }
+
+    let x = +prompt("Nhập tọa độ x");
+    let y = +prompt("Nhập tọa độ y");
+    let chieuDai = +prompt("nhập chiều dài");
+    let chieuRong = +prompt("nhap chiều rộng");
+    let ketQua = new HinhChuNhat(x, y ,chieuDai, chieuRong);
+    document.getElementById('thongSo').innerHTML = ketQua.getHinhChuNhat();
+    let canvas = document.getElementById("hinhChuNhat");
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'red';
+    ctx.fillRect(x, y, chieuDai, chieuRong);
+</script>

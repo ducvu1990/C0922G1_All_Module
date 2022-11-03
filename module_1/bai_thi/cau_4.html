@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<h1> QUẢN LÝ SẢN PHẨM </h1>
+<table style=" border: 0px solid black; width: 600px; float: right">
+    <tr>
+        <th style="font-size: 40px" colspan="5">DANH SÁCH SẢN PHẨM</th>
+    </tr>
+    <tr>
+        <th>MÃ SẢN PHẨM</th>
+        <th>TÊN SẢN PHẨM</th>
+        <th>HÃNG SẢN XUẤT</th>
+        <th>GIÁ</th>
+        <th></th>
+    </tr>
+    <tbody id="danhsach">
+    </tbody>
+</table>
+<table border="1" style="width: 500px; height: 300px" ;>
+    <tr>
+        <th colspan="2"> THÔNG TIN SẢN PHẨM</th>
+    </tr>
+    <tr>
+        <th>MÃ SẢN PHẨM</th>
+        <td><input type="text" id="id"></td>
+    </tr>
+    <tr>
+        <th>TÊN SẢN PHẨM</th>
+        <td><input type="text" id="tenSanPham"></td>
+    </tr>
+    <tr>
+        <th>HÃNG SẢN XUẤT</th>
+        <td><input type="text" id="hangSanXuat"></td>
+    </tr>
+    <tr>
+        <th>GIÁ</th>
+        <td><input type="text" id="gia"></td>
+    </tr>
+    <tr >
+        <td colspan="2">
+            <button style="background-color: green;float:right" id="add" onclick="add()">Add</button>
+        </td>
+    </tr>
+</table>
+<script>
+    class SanPham {
+        constructor (id, tenSanPham, hangSanXuat, gia) {
+            this.id= id;
+            this.tenSanPham = tenSanPham;
+            this.hangSanXuat = hangSanXuat;
+            this.gia = gia;
+        }
+        getID() {
+            return this.id;
+        }
+        getTenSanPham() {
+            return this.tenSanPham;
+        }
+        geThangSanXuat() {
+            return this.hangSanXuat;
+        }
+        getGia(){
+            return this.gia;
+        }
+        setID(id) {
+            this.id=id;
+        }
+        setTenSanPham(tenSanPham) {
+            this.tenSanPham = tenSanPham;
+        }
+        setHangSanXuat(hangSanXuat) {
+            this.hangSanXuat = hangSanXuat;
+        }
+        setGia(gia){
+            this.gia = gia;
+        }
+    }
+    class QuanLySanPham {
+        constructor(arr) {
+            this.sanPham = arr;
+        }
+        danhSach() {
+            let table = "";
+            for (let i = 0; i < this.sanPham.length; i++) {
+                table += '<tr>';
+                table += '<th>';
+                table += this.sanPham[i].id;
+                table += '</th>';
+                table += '<th>';
+                table += this.sanPham[i].tenSanPham;
+                table += '</th>';
+                table += '<th>';
+                table += this.sanPham[i].hangSanXuat;
+                table += '</th>';
+                table += '<th>';
+                table += this.sanPham[i].gia;
+                table += '</th>';
+                table += '<td>' + '</td>';
+                table += '</tr>';
+            }
+            document.getElementById('danhsach').innerHTML = table;
+        }
+        add(sanPham1) {
+            this.sanPham.push(sanPham1);
+        }
+
+    }
+    let arr =[];
+    let quanLy = new QuanLySanPham(arr);
+    function add(){
+        let id = document.getElementById('id').value;
+        let tenSanPham = document.getElementById('tenSanPham').value;
+        let hangSanXuat = document.getElementById('hangSanXuat').value;
+        let gia = document.getElementById('gia').value;
+        let sanPham1 = new SanPham(id,tenSanPham,hangSanXuat,gia);
+        quanLy.add(sanPham1);
+        quanLy.danhSach();
+        clear();
+    }
+    function clear(){
+        document.getElementById('id').value = '';
+        document.getElementById('tenSanPham').value = '';
+        document.getElementById('hangSanXuat').value = '';
+        document.getElementById('gia').value = '';
+    }
+
+
+</script>
+
+</body>
+</html>

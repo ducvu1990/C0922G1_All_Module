@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 1</title>
+</head>
+<body>
+    <label for="nhapSo"></label><input id="nhapSo"><button onclick="themGiaTri()">Thêm</button><br>
+    <p id="hienThiMang"></p>
+</body>
+</html>
+<script>
+    let arr = [];
+    function themGiaTri() {
+        let sum = 0;
+        let count = 0;
+        let medium = 0;
+        if (arr.length < 50) {
+            let assign = document.getElementById("nhapSo").value;
+            arr.push(Math.floor(assign));
+        }else {
+            alert("Độ dài của mảng đủ 50 phần tử");
+        }
+        for (let i = 0; i < arr.length; i+=3) {
+            if (arr[i] % 5 === 0) {
+                sum += arr[i];
+                count +=1;
+                medium = sum/count;
+            }
+        }
+        document.getElementById("hienThiMang").innerHTML = "Mảng Array[" + arr + "]<br>" + "Độ dài mảng là: " +
+        arr.length + "<br>Giá trị trung bình của các phần tử chia hết cho 5 ở vị trí chia hết cho 3 là: " + medium;
+    }
+</script>

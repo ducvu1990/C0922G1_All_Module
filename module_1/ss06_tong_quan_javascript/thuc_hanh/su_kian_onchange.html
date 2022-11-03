@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bắt sự kiện onchange</title>
+</head>
+<body>
+    <p onmouseover="mouseover()" onmouseout="mouseout()" onclick="clickme()" id="demo">bắt sự kiaanj onchange</p>
+    <select id="mySelect" onchange="do_something()">
+        <option value="Audi">Audi</option>
+        <option value="BMW">BMW</option>
+        <option value="Volvo">Volvo</option>
+        <option value="Tesla">Tesla</option>
+    </select>
+<script>
+    function clickme() {
+        alert("xin chao");
+    }
+    function mouseout() {
+        document.getElementById("demo").style.color="black";
+    }
+    function mouseover() {
+    document.getElementById("demo").style.color="red";
+    }
+    function do_something() {
+        let selectValue = document.getElementById("mySelect").value;
+        alert(selectValue);
+    }
+    let selecValue = document.getElementById("mySelect").value;
+    selecValue.addEventListener("change", changeFunction);
+    function changeFunction() {
+        let selecValue = document.getElementById("mySelect").value;
+        alert(selecValue);
+    }
+</script>
+</body>
+</html>

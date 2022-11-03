@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+    <script>
+        function tinhChuViHinhTron(banKinh) {
+            let chuVi = 2 * banKinh * Math.PI;
+            return chuVi;
+        }
+        function tinhDienTichHinhTron(banKinh) {
+            let dienTich = banKinh * banKinh * Math.PI;
+            return dienTich;
+        }
+        let banKinh = parseFloat(prompt("Nhập vào bán kính R"));
+        let perimeter = tinhChuViHinhTron(banKinh);
+        let area = tinhDienTichHinhTron(banKinh);
+        alert("Chu vi hình tròn có bán kính " + banKinh + " là: " + perimeter + ".<br> Có diện tích là: " + area);
+    </script>
+</body>
+</html>

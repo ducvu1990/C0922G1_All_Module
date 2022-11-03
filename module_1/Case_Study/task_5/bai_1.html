@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tổng số chẳn trong ma trận m*n</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function nhapMang2Chieu(){
+        let m = parseInt(prompt("Nhập M"));
+        let n = parseInt(prompt("Nhập N"));
+        let a = [];
+        for (let i = 0; i < m; i++) {
+            let newArr = [];
+            for (let j = 0; j < n; j++) {
+                let e = parseInt(prompt("Nhập giá trị a[" + i + "][" + j + "]"));
+                newArr.push(e);
+            }
+            a.push(newArr);
+        }
+        return a;
+    }
+    function tongSoChan(mang) {
+        let sum = 0;
+        for (let i = 0; i < mang.length; i++) {
+            for (let j = 0; j < mang[i].length; j++) {
+                if (mang[i][j] % 2 === 0) {
+                    sum += mang[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+    alert("Tổng các số chẵn có trong mảng 2 chiều là: " + tongSoChan(nhapMang2Chieu()));
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liệt kê các số nguyên tố</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function nhapMang2Chieu(){
+        let m = parseInt(prompt("Nhập M"));
+        let n = parseInt(prompt("Nhập N"));
+        let a = [];
+        for (let i = 0; i < m; i++) {
+            let newArr = [];
+            for (let j = 0; j < n; j++) {
+                let e = parseInt(prompt("Nhập giá trị a[" + i + "][" + j + "]"));
+                newArr.push(e);
+            }
+            a.push(newArr);
+        }
+        return a;
+    }
+
+    function kiemTraSoNguyenTo(so) {
+        let test = true;
+        if (so ===0 || so === 1) {
+            test = false;
+            return test;
+        }else {
+            for (let i = 2; i <= Math.sqrt(so); i++) {
+                if (so % i === 0) {
+                    test = false;
+                    return test;
+                }
+            }
+            return test;
+        }
+
+    }
+    function lietKeVaDemSoNguyenTo(mang2Chieu){
+        let addString = "";
+        let count = 0;
+        let test;
+        for (let i = 0; i < mang2Chieu.length; i++) {
+            for (let j = 0; j < mang2Chieu[i].length; j++) {
+                test = kiemTraSoNguyenTo(mang2Chieu[i][j]);
+                if (test === true) {
+                    addString += mang2Chieu[i][j] + ",";
+                    count += 1;
+                }
+            }
+        }
+        document.write("có " + count + " sô nguyên tố trong mảng. Và các số đó là: " + addString);
+    }
+    lietKeVaDemSoNguyenTo(nhapMang2Chieu());
+
+</script>

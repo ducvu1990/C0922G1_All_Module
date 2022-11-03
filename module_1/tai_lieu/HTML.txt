@@ -1,0 +1,45 @@
+thộc tính luôn nằm trong thẻ mở
+Thuộc tính đi thành cặp thuộc_tính/giá_trị dạng: tên_thuộc_tính="giá_trị"
+Thuộc tính href
+Thẻ <a> dùng để khai báo một liên kết trên trang web. Muốn khai báo địa chỉ đích của liên kết ta viết thêm thuộc tính href cho nó.
+Thuộc tính width và height dùng để khai báo kích thước của đối tượng, như của hình ảnh chẳng hạn.
+
+width: chiều rộng
+height: chiều cao
+Luôn viết thuộc tính bằng chữ in thường
+<hr> tạo đường kẻ ngang
+<pre> hiển thị một đoạn văn bản đã định dạng sẵn
+<a href="url">tên liên kết hiển thị ở đây</a>
+Chú ý: Nếu không có dấu gạch chéo (/) phía sau địa chỉ thư mục con của tên miền (http://bob.codegym.vn/lessons), ta có thể sẽ gửi 2 request đến server. 
+Tuy nhiên nhiều server sẽ tự động thêm dấu gạch chéo vào địa chỉ trang web, sau đó tạo một request mới để xử lý tiếp.
+ Bởi vì http://bob.codegym.vn/lessons và http://bob.codegym.vn/lessons/ là 2 URL khác nhau.
+thuộc tính CSS:
+a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+Thuộc tính target cho trình duyệt biết cách mở ra trang web trong thẻ href.
+
+Thuộc tính target có thể là một trong các giá trị sau:
+
+_blank - Mở liên kết trong một cửa sổ hoặc một tab mới của trình duyệt
+_self - Mở liên kết trong tab/cửa sổ hiện tại của trình duyệt (Không cần khai báo cũng được vì đây là mặc định của thẻ <a>)
+_parent - Mở liên kết trong parent frame
+_top - Mở liên kết trong cửa sổ chính
+framename - Mở liên kết trong một frame có tên là framename (Tìm hiểu thêm về thẻ <frame>)

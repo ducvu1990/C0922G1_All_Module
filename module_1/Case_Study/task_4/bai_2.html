@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm ký tự khác nhau</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    let a = prompt("Nhập vào xâu ký tự.");
+    let b = a.split("");
+    document.write("Chuổi nhập vào là: " + b + "<br>");
+    for (let i = 0; i < b.length;i++) {
+        for (let j = i+1; j < b.length;) {
+            if (b[i] === b[j]){
+                b.splice(j,1);
+            }else {
+                j++;
+            }
+        }
+    }
+    document.write("Chuổi nhập vào có " + b.length + " ký tự khác nhau.<br>" + "Ký tự đó là: " + '"' + b + '"');
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt('nhap a'));
+    let i=0;
+    let N = 2;
+    let cau;
+    while (i<a) {
+        for (let j=1; j<N; j++) {
+        if (N%j == 0) {
+            cau +=1;
+        }
+        if (cau == 2) {
+            document.write(N);
+        }
+        }
+        N += 1;
+        i += 1;
+    }
+</script>
+</body>
+</html>

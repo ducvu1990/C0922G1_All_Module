@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 6</title>
+</head>
+<body>
+    Nhập doanh thu: <input id="doanhThu"><br>
+    <button onclick="hoaHong()">Tính hoa </button><br>
+    Hoa hồng là: <span id="hoaHong"></span>
+</body>
+    <script>
+        function hoaHong() {
+        let doanhThu = parseFloat(document.getElementById('doanhThu').value);
+        var hoaHong;
+        if (doanhThu >= 1000) {
+            hoaHong = doanhThu * 0.5;
+        }else if (doanhThu > 800) {
+            hoaHong = doanhThu * 0.2;
+        }else {
+            hoaHong = 0;
+        }
+        document.getElementById('hoaHong').innerText = hoaHong;
+        }
+    </script>
+</html>

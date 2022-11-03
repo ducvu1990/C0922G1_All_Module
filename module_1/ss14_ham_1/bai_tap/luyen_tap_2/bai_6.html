@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+    <script>
+        function kiemTraSoNguyen(a) {
+            let traVe;
+            if (a * -1 < 0) {
+                traVe = true;
+            }else {
+                traVe = false;
+            }
+            return traVe;
+        }
+        let soA = prompt("Nhập vào giá trị a");
+        let traVe = kiemTraSoNguyen(soA);
+        alert("Giá trị trả về là: " + traVe);
+    </script>
+</body>
+</html>

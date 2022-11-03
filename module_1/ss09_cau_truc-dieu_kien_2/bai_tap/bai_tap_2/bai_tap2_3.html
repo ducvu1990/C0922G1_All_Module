@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-3</title>
+</head>
+<body>
+    Nhập cạnh a: <input id="canhA"><br>
+    <button onclick="dienTich()">Tính diện tích</button><br>
+    Diện tích là: <span id="dienTich"></span>
+</body>
+    <script>
+        function dienTich() {
+        let a = parseFloat(document.getElementById('canhA').value);
+        let dienTich = a * a;
+        document.getElementById('dienTich').innerText = dienTich;
+        }
+    </script>
+</html>

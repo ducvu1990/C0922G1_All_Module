@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập </title>
+</head>
+<body>
+    Bài kiểm tra: <input id="baiKT"><br>
+    Điểm thi giữa kỳ: <input id="giuaKy"><br>
+    Điểm thi cuối kỳ: <input id="cuoiKy"><br>
+    <button onclick="danhGia()">Đánh giá</button><br>
+    Kết quả: <span id="ketQua"></span>
+</body>
+    <script>
+        function danhGia() {
+            let kt = parseFloat(document.getElementById('baiKT').value);
+            let gk = parseFloat(document.getElementById('giuaKy').value);
+            let  ck = parseFloat(document.getElementById('cuoiKy').value);
+            let trungBinh = (kt + gk + ck)/3;
+            if (trungBinh > 7.5) {
+                document.getElementById('ketQua').innerText = 'Loại Giỏi';
+            }else if (trungBinh > 6) {
+                document.getElementById('ketQua').innerText = 'Loại Khá';
+            }else if (trungBinh >= 5) {
+                document.getElementById('ketQua').innerText = 'Loại trung bình';
+            }else {
+                document.getElementById('ketQua').innerText = 'Loại yếu';
+            }
+        }
+    </script>
+</html>

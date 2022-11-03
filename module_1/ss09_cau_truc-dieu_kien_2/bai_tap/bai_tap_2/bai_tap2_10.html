@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập 2-10</title>
+</head>
+<body>
+    Nhập vào số điện: <input id="soDien"><br>
+    <button onclick="tinhTienDien()">Tính tiền điện</button><br>
+    Số tiền là: <span id="soTien"></span>
+</body>
+    <script>
+        function tinhTienDien() {
+            let soDien = parseInt(document.getElementById('soDien').value);
+            var soTien;
+            if (soDien>401) {
+                soTien = ((soDien - 400) * 2.927) + (100 * 2.834) + (100 * 2.536) + (100 *2.014) + (50 * 1.734) + (50 * 1.678);
+                document.getElementById('soTien').innerText = soTien;
+            }else if (soDien>301) {
+                soTien = ((soDien -300) * 2.834) + (100 * 2.536) + (100 *2.014) + (50 * 1.734) + (50 * 1.678);
+                document.getElementById('soTien').innerText = soTien;
+            }else if (soDien>201) {
+                soTien = ((soDien - 200) * 2.536) + (100 *2.014) + (50 * 1.734) + (50 * 1.678);
+                document.getElementById('soTien').innerText = soTien;
+            }else if (soDien>101) {
+                soTien = ((soDien - 100) * 2.014) + (50 * 1.734) + (50 * 1.678);
+                document.getElementById('soTien').innerText = soTien;
+            }else if (soDien>51) {
+                soTien = ((soDien - 50) * 1.734) + (50 * 1.678);
+                document.getElementById('soTien').innerText = soTien;
+            }else {
+                soTien = soDien * 1.678;
+                document.getElementById('soTien').innerText = soTien;
+            }
+        }
+    </script>
+</html>
