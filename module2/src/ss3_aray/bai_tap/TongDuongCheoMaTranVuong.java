@@ -20,9 +20,7 @@ public class TongDuongCheoMaTranVuong {
         }
 
         for (int i = 0; i < width; i++) {
-            for (int j = i; j == i; j++) {
-                sum += array[i][j];
-            }
+                sum += array[i][i];
         }
 
         System.out.println("Tổng đường chéo của ma trận là: " + sum);
