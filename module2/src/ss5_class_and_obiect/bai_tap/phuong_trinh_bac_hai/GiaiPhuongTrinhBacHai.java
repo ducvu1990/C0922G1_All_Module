@@ -18,7 +18,7 @@ public class GiaiPhuongTrinhBacHai {
         }else if (phuongTrinhBacHai.getDiscriminant() == 0){
             System.out.println("QuadraticEquation one root:" + phuongTrinhBacHai.getRoot1());
         }else {
-            System.out.println("QuadraticEquation no root");
+            System.out.println("QuadraticEquation no root.");
         }
     }
 }
