@@ -1,8 +1,17 @@
 package ss5_class_and_obiect.demo;
 
 public class SimpleCircle {
-    public static void main(String[] args) {
-        SimpleCircle circle1 = new SimpleCircle();
-        System.out.println("");
+    double radius;
+
+    SimpleCircle(){
+        radius = 1;
+    }
+
+    SimpleCircle(double newRadius){
+        radius = newRadius;
+    }
+
+    double getArea(){
+        return radius*radius;
     }
 }
