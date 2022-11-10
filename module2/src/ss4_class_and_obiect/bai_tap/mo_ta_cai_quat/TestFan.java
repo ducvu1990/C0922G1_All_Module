@@ -1,4 +1,4 @@
-package ss5_class_and_obiect.bai_tap.mo_ta_cai_quat;
+package ss4_class_and_obiect.bai_tap.mo_ta_cai_quat;
 
 import java.util.Scanner;
 

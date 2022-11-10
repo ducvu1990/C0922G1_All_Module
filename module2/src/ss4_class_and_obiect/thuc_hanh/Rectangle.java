@@ -1,4 +1,4 @@
-package ss5_class_and_obiect.thuc_hanh;
+package ss4_class_and_obiect.thuc_hanh;
 
 public class Rectangle {
     double width, heigh;

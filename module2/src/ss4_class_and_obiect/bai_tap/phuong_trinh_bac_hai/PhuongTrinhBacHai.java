@@ -1,4 +1,4 @@
-package ss5_class_and_obiect.bai_tap.phuong_trinh_bac_hai;
+package ss4_class_and_obiect.bai_tap.phuong_trinh_bac_hai;
 
 public class PhuongTrinhBacHai {
     double a, b, c;

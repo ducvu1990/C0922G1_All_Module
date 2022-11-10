@@ -1,4 +1,4 @@
-package ss5_class_and_obiect.bai_tap.Lop_StopWatch;
+package ss4_class_and_obiect.bai_tap.Lop_StopWatch;
 
 public class StopWatch {
     public long starTime;
