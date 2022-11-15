@@ -13,9 +13,9 @@ public class ThemPhanTuVaoMang {
         System.out.println("Nhập vị trí cần thêm");
         Scanner scidex = new Scanner(System.in);
         int index = Integer.parseInt(scidex.nextLine());
-        int arrlength = array.length - 1;
-        if (index > 0 && index < arrlength){
-            for (int i = arrlength; i >= index; i--) {
+        int arrLength = array.length - 1;
+        if (index > 0 && index < arrLength){
+            for (int i = arrLength; i >= index; i--) {
                 array[i] = array[i - 1];
             }
             array[index] = number;

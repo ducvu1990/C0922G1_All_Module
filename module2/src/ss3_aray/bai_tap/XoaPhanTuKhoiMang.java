@@ -10,13 +10,13 @@ public class XoaPhanTuKhoiMang {
         System.out.println("Nhập vào số cần xóa");
         Scanner sc = new Scanner(System.in);
         int number = Integer.parseInt(sc.nextLine());
-        int arrlength = array.length;
-        for (int i = 0; i < arrlength;) {
+        int arrLength = array.length;
+        for (int i = 0; i < arrLength;) {
             if (number == array[i]){
-                for (int j = i; j < arrlength - 1; j++) {
+                for (int j = i; j < arrLength - 1; j++) {
                     array[j] = array[j + 1];
                 }
-                array[arrlength - 1] = 0;
+                array[arrLength - 1] = 0;
                 continue;
             }
             i++;

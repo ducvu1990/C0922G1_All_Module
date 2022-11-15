@@ -1,4 +1,0 @@
-Khi các bạn soạn bài lý thuyết thì có thể soạn theo các tiêu chí sau:
- Soạn đầy đủ các câu hỏi thảo luận từ giảng viên hay chưa?
- Ở mỗi câu hỏi thảo luận, viết ra 2 - 3 dòng lệnh (code) là cơ chế chính cho từng câu.
- Áp dụng kiến thức hôm nay vào bài tập thì có ưu điểm gì hay?
