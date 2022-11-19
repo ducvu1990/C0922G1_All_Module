@@ -46,9 +46,9 @@ public class TestMyArrayList {
         studentMyArrayList.add(e);
 //        studentMyArrayList.add(f, 3);
 //        for (int i = 0; i < studentMyArrayList.size(); i++) {
-//            Student studentss = (Student) studentMyArrayList.elements[i];
-//            System.out.println(studentss.getId());
-//            System.out.println(studentss.getName());
+//            Student students = (Student) studentMyArrayList.elements[i];
+//            System.out.println(students.getId());
+//            System.out.println(students.getName());
 //        }
 //        System.out.println(studentMyArrayList.get(2).getName());
         newMyArrayList = studentMyArrayList.clone();
