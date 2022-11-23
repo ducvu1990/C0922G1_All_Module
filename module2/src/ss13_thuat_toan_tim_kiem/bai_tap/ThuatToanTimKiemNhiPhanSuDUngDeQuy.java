@@ -1,7 +1,6 @@
 package ss13_thuat_toan_tim_kiem.bai_tap;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Scanner;
 
 public class ThuatToanTimKiemNhiPhanSuDUngDeQuy {
@@ -14,11 +13,11 @@ public class ThuatToanTimKiemNhiPhanSuDUngDeQuy {
             System.out.println("nhap phan thu [" + i + "]");
             array[i] = Integer.parseInt(sc.nextLine());
         }
-        array = sapXep(array);
+        sapXep(array);
         System.out.println(Arrays.toString(array));
         System.out.println("nhap so can tim: ");
         int num = Integer.parseInt(sc.nextLine());
-        System.out.println(binarySearch(array, 1, size, num));
+        System.out.println(binarySearch(array, 0, size - 1, num));
     }
 
     public static int binarySearch(int[] array, int left, int right, int value) {
@@ -36,7 +35,7 @@ public class ThuatToanTimKiemNhiPhanSuDUngDeQuy {
         }
     }
 
-    public static int[] sapXep(int[] array) {
+    public static void sapXep(int[] array) {
         int size = array.length;
         int temp;
         for (int i = 0; i < size; i++) {
@@ -48,6 +47,5 @@ public class ThuatToanTimKiemNhiPhanSuDUngDeQuy {
                 }
             }
         }
-        return array;
     }
 }
