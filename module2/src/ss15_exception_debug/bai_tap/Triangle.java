@@ -19,7 +19,7 @@ public class Triangle {
                 double canhC = Double.parseDouble(sc.nextLine());
                 checkTriangleCanh(canhC);
                 checkTriangle(canhA, canhB, canhC);
-
+                System.out.println(canhA + ", " + canhB + ", " + canhC + ", là ba cạnh của tam giác.");
                 break;
 
             } catch (IllegalTriangleException e) {
