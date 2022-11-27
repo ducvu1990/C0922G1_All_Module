@@ -1,9 +1,15 @@
 package ss15_exception_debug.bai_tap;
 
 public class IllegalTriangleException extends Exception{
+    public IllegalTriangleException() {
+    }
+
+    public IllegalTriangleException(String message) {
+        super(message);
+    }
 
     @Override
     public String getMessage() {
-        return "Sai điều kiện của tam giác";
+        return super.getMessage();
     }
 }
