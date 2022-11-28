@@ -65,8 +65,9 @@ public class ProductManagement {
         for (int i = 0; i < size; i++) {
             if (Objects.equals(id, products.get(i).getId())){
                 list = products.get(i).toString();
+                return list;
             }
         }
-        return list;
+        return "ID không tồn tại.";
     }
 }
