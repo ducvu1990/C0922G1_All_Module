@@ -6,7 +6,7 @@ import ss17_BinaryFileAndSerialization.bai_tap.service.ProductManagement;
 import java.util.Scanner;
 
 public class Main {
-    public static final String PATH_FILE = "src/ss17_BinaryFileAndSerialization/bai_tap/repository/product.csv";
+    public static final String PATH_FILE = "src/ss17_BinaryFileAndSerialization/bai_tap/repository/product.txt";
 
     public static void main(String[] args) {
         ProductManagement pm = new ProductManagement();

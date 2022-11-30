@@ -21,7 +21,7 @@ public class ProductManagement {
             throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             try {
                 oos.close();
                 fos.close();
@@ -41,17 +41,31 @@ public class ProductManagement {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return null;
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         return list;
     }
 
-    public void addProduct(Product product, String pathFile) {
+    public String addProduct(Product product, String pathFile) {
+        List<Product> prd = displayProduct(pathFile);
+        if (prd == null) {
+            list.add(product);
+            writeProduct(pathFile, list);
+            return "Đã thêm.";
+        }else {
+            for (Product item : prd) {
+                if (Objects.equals(product.getId(), item.getId())) {
+                    return "Id trùng, không thể thêm.";
+                }
+            }
+        }
         list.add(product);
         writeProduct(pathFile, list);
+        return "Đã thêm.";
     }
+
 
     public List<Product> displayProduct(String pathFile) {
         List<Product> productList = readProduct(pathFile);
@@ -63,7 +77,7 @@ public class ProductManagement {
         List<Product> products = displayProduct(pathFile);
         int size = products.size();
         for (int i = 0; i < size; i++) {
-            if (Objects.equals(id, products.get(i).getId())){
+            if (Objects.equals(id, products.get(i).getId())) {
                 list = products.get(i).toString();
                 return list;
             }
