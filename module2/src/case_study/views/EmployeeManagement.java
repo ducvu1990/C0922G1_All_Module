@@ -152,13 +152,13 @@ public class EmployeeManagement {
                                 emailEdit,levelEdit,locationEdit,wageEdit);
                         employeeController.editEmployee(codeEdit, employeeEdit);
                     }else {
-                        System.err.println("code does not exist.");
+                        System.err.println("Code does not exist.");
                     }
                     break;
                 case 5:
                     return;
                 default:
-                    System.out.println("Số nhập không hợp lệ.");
+                    System.out.println("Invalid number entered.");
                     break;
             }
         } while (true);

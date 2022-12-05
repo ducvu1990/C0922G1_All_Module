@@ -26,7 +26,7 @@ public class BookingManagement {
                 case 3:
                     return;
                 default:
-                    System.out.println("Số nhập không hợp lệ.");
+                    System.out.println("Invalid number entered.");
                     break;
             }
         } while (true);
