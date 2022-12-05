@@ -6,6 +6,7 @@ import case_study.services.ICustomerService;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class CustomerServiceImpl implements ICustomerService {
     private final List<Customer> customerList = new LinkedList<>();
@@ -36,6 +37,7 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     public boolean checkIdCustomer(int code) {
+        ListIterator<Customer> customerListIterator = customerList.listIterator();
         for (Customer item :customerList) {
             if (code == item.getCode()){
                 return true;
