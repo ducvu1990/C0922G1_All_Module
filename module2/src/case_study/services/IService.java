@@ -1,5 +1,7 @@
 package case_study.services;
 
+import java.util.List;
+
 public interface IService<O> {
-    void displays();
+    List<O> displays();
 }

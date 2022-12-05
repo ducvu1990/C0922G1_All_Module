@@ -5,6 +5,6 @@ import com.sun.xml.internal.bind.v2.model.core.Element;
 
 public interface IEmployeeService extends IService<Employee>{
     void addEmployee(Employee employee);
-    void deleteEmployee();
-    void editEmployee(int code);
+    void deleteEmployee(int code);
+    void editEmployee(int code, Employee employee);
 }
