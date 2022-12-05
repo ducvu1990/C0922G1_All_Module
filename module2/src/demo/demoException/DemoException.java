@@ -9,8 +9,9 @@ public class DemoException {
     public static void writeDemo(String pathFile, StudentDemo studentDemos){
         BufferedWriter bw=null;
         try {
-            bw = new BufferedWriter(new FileWriter(pathFile, true));
-            bw.write(studentDemos.toString()+ "\n");
+            bw = new BufferedWriter(new FileWriter(pathFile));
+            bw.write(studentDemos.toString());
+            bw.newLine();
             bw.flush();
         } catch (IOException e) {
             throw new RuntimeException(e);
