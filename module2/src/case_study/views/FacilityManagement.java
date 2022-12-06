@@ -4,7 +4,6 @@ import case_study.controllers.FacilityController;
 import case_study.models.facility.Facility;
 import case_study.models.facility.Room;
 import case_study.models.facility.Villa;
-import case_study.views.addNewFacility.AddNewFacility;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
