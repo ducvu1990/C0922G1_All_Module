@@ -2,6 +2,7 @@ package case_study.views;
 
 import case_study.controllers.EmployeeController;
 import case_study.models.Person.Employee;
+import case_study.utils.Validate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 
 public class EmployeeManagement {
     private static final Scanner scanner = new Scanner(System.in);
+    private static final String DATE_OF_BIRTH = "^([0-2][0-9]|3[0-1])/(0[0-9]|1[0-2])/[0-9]{4}$";
     private static final EmployeeController employeeController = new EmployeeController();
 
     public static void menuFuramaOption1() {
@@ -34,27 +36,48 @@ public class EmployeeManagement {
                 case 2:
                     System.out.println("Enter code.");
                     int codeAdd = Integer.parseInt(scanner.nextLine());
-                    System.out.println("Enter name.");
-                    String nameAdd = scanner.nextLine();
-                    System.out.println("Enter date of birth.");
-                    String dateOfBirthAdd = scanner.nextLine();
-                    System.out.println("Enter sex.");
-                    String sexAdd = scanner.nextLine();
-                    System.out.println("Enter id number.");
-                    String idNumberAdd = scanner.nextLine();
-                    System.out.println("Enter phone number.");
-                    String phoneNumberAdd = scanner.nextLine();
-                    System.out.println("Enter email.");
-                    String emailAdd = scanner.nextLine();
-                    System.out.println("Enter level.");
-                    String levelAdd = scanner.nextLine();
-                    System.out.println("Enter location.");
-                    String locationAdd = scanner.nextLine();
-                    System.out.println("Enter wage.");
-                    String wageAdd = scanner.nextLine();
-                    Employee employee = new Employee(codeAdd,nameAdd,dateOfBirthAdd,sexAdd,idNumberAdd,phoneNumberAdd,
-                            emailAdd,levelAdd,locationAdd,wageAdd);
-                    employeeController.addEmployee(employee);
+                    if (employeeController.checkIdEmployee(codeAdd)){
+                        System.out.println("Code already exists.");
+                    }else {
+                        System.out.println("Enter name.");
+                        String nameAdd = scanner.nextLine();
+
+                        System.out.println("Enter date of birth.");
+                        String dateOfBirthAdd;
+                        do {
+                            dateOfBirthAdd = scanner.nextLine();
+                            if (Validate.validate(DATE_OF_BIRTH, dateOfBirthAdd)){
+                                break;
+                            }else {
+                                System.err.println("Incorrect input, please re-enter.");
+                            }
+                        }while (true);
+
+                        System.out.println("Enter sex.");
+                        String sexAdd = scanner.nextLine();
+
+                        System.out.println("Enter id number.");
+                        String idNumberAdd = scanner.nextLine();
+
+                        System.out.println("Enter phone number.");
+                        String phoneNumberAdd = scanner.nextLine();
+
+                        System.out.println("Enter email.");
+                        String emailAdd = scanner.nextLine();
+
+                        System.out.println("Enter level.");
+                        String levelAdd = scanner.nextLine();
+
+                        System.out.println("Enter location.");
+                        String locationAdd = scanner.nextLine();
+
+                        System.out.println("Enter wage.");
+                        String wageAdd = scanner.nextLine();
+
+                        Employee employee = new Employee(codeAdd,nameAdd,dateOfBirthAdd,sexAdd,idNumberAdd,phoneNumberAdd,
+                                emailAdd,levelAdd,locationAdd,wageAdd);
+                        employeeController.addEmployee(employee);
+                    }
                     break;
                 case 3:
                     System.out.println("Enter id deleter.");
@@ -77,14 +100,15 @@ public class EmployeeManagement {
                             }
                         }
                         System.out.println("Enter date of birth.");
-                        String dateOfBirthEdit = scanner.nextLine();
-                        if (Objects.equals(dateOfBirthEdit, "")){
-                            for (Employee item: employeeList) {
-                                if (codeEdit == item.getCode()){
-                                    dateOfBirthEdit = item.getDateOfBirth();
-                                }
+                        String dateOfBirthEdit;
+                        do {
+                            dateOfBirthEdit = scanner.nextLine();
+                            if (Validate.validate(DATE_OF_BIRTH, dateOfBirthEdit)){
+                                break;
+                            }else {
+                                System.err.println("Incorrect input, please re-enter.");
                             }
-                        }
+                        }while (true);
                         System.out.println("Enter sex.");
                         String sexEdit = scanner.nextLine();
                         if (Objects.equals(sexEdit, "")){

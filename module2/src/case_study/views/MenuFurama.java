@@ -38,7 +38,7 @@ public class MenuFurama {
                     PromotionManagement.menuFuramaOption5();
                     break;
                 case 6:
-                    return;
+                    System.exit(1);
                 default:
                     System.out.println("Invalid number entered.");
                     break;

@@ -10,7 +10,6 @@ public class EmailExample {
     private static final String EMAIL_REGEX =
             "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
     public boolean validate(String string) {
-
         return Pattern.matches(EMAIL_REGEX,string);
     }
 }

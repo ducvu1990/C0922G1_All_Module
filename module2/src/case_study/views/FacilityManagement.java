@@ -4,6 +4,7 @@ import case_study.controllers.FacilityController;
 import case_study.models.facility.Facility;
 import case_study.models.facility.Room;
 import case_study.models.facility.Villa;
+import case_study.utils.Validate;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Scanner;
 public class FacilityManagement {
     private static final Scanner scanner = new Scanner(System.in);
     private static final FacilityController facilityController = new FacilityController();
+
     public static void menuFuramaOption3() {
         int option3;
         do {
@@ -34,7 +36,7 @@ public class FacilityManagement {
                     addNewFacility();
                     break;
                 case 3:
-                    Map<Facility,Integer> facilityIntegerMap = new LinkedHashMap<>();
+                    Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
                     facilityIntegerMap = facilityController.displayFacilitymaintenance();
                     for (Map.Entry<Facility, Integer> entry : facilityIntegerMap.entrySet()) {
                         System.out.println(entry);
@@ -48,6 +50,15 @@ public class FacilityManagement {
             }
         } while (true);
     }
+
+    private static final String SERVICE_CODE = "^SV(VL|RO)-[0-9]{4}";
+    private static final String SERVICE_NAME = "[A-Z][a-z]+";
+    private static final String USABLE_AREA = "[3-9][0-9]+.[0-9]+";
+    private static final String RENTAL_COSTS = "[0-9]+";
+    private static final String MAXIMUN_NUMBER_OF_PEOPLE = "^[0-2][0-9]$";
+    private static final String NUMBER_OF_FLOORS = "[0-9]+";
+    private static final String RENTAL_TYPE = "[A-Z][a-z]+";
+
     public static void addNewFacility() {
         int option32;
         int numberOfUsesVilla = 0;
@@ -65,43 +76,174 @@ public class FacilityManagement {
             }
             switch (option32) {
                 case 1:
+                    System.out.println("Enter service code.");
+                    String serviceCodeVilla;
+                    do {
+                        serviceCodeVilla = scanner.nextLine();
+                        if (Validate.validate(SERVICE_CODE, serviceCodeVilla)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+
                     System.out.println("Enter service name.");
-                    String serviceNameVilla = scanner.nextLine();
+                    String serviceNameVilla;
+                    do {
+                        serviceNameVilla = scanner.nextLine();
+                        if (Validate.validate(SERVICE_NAME, serviceNameVilla)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+
                     System.out.println("Enter usable area.");
-                    double usableAreaVilla = Double.parseDouble(scanner.nextLine());
+                    String usableAreaVillaScecnner;
+                    do {
+                        usableAreaVillaScecnner = scanner.nextLine();
+                        if (Validate.validate(USABLE_AREA, usableAreaVillaScecnner)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+                    double usableAreaVilla = Double.parseDouble(usableAreaVillaScecnner);
+
                     System.out.println("Enter rental costs.");
-                    double rentalCostsVilla = Double.parseDouble(scanner.nextLine());
+                    String rentalCostsVillaScenner;
+                    do {
+                        rentalCostsVillaScenner = scanner.nextLine();
+                        if (Validate.validate(RENTAL_COSTS, rentalCostsVillaScenner)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+                    double rentalCostsVilla = Double.parseDouble(rentalCostsVillaScenner);
+
                     System.out.println("Enter maximum number of people.");
-                    int maximumNumberOfPeopleVilla = Integer.parseInt(scanner.nextLine());
+                    String maximumNumberOfPeopleVillaScanner;
+                    do {
+                        maximumNumberOfPeopleVillaScanner = scanner.nextLine();
+                        if (Validate.validate(MAXIMUN_NUMBER_OF_PEOPLE, maximumNumberOfPeopleVillaScanner)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+                    int maximumNumberOfPeopleVilla = Integer.parseInt(maximumNumberOfPeopleVillaScanner);
+
                     System.out.println("Enter rental type.");
-                    String rentalTypeVilla = scanner.nextLine();
+                    String rentalTypeVilla;
+                    do {
+                        rentalTypeVilla = scanner.nextLine();
+                        if (Validate.validate(RENTAL_TYPE, rentalTypeVilla)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+
                     System.out.println("Enter room standard.");
                     String roomStandardVilla = scanner.nextLine();
+
                     System.out.println("Enter pool area.");
                     double poolAreaVilla = Double.parseDouble(scanner.nextLine());
+
                     System.out.println("Enter number of floors.");
-                    int numberOfFloorsVilla = Integer.parseInt(scanner.nextLine());
-                    Villa villa = new Villa(serviceNameVilla, usableAreaVilla, rentalCostsVilla, maximumNumberOfPeopleVilla,
+                    String numberOfFloorsVillaScenner;
+                    do {
+                        numberOfFloorsVillaScenner = scanner.nextLine();
+                        if (Validate.validate(NUMBER_OF_FLOORS, numberOfFloorsVillaScenner)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+                    int numberOfFloorsVilla = Integer.parseInt(numberOfFloorsVillaScenner);
+
+                    Villa villa = new Villa(serviceCodeVilla, serviceNameVilla, usableAreaVilla, rentalCostsVilla, maximumNumberOfPeopleVilla,
                             rentalTypeVilla, roomStandardVilla, poolAreaVilla, numberOfFloorsVilla);
-                    facilityController.addFacility(villa,numberOfUsesVilla);
+                    facilityController.addFacility(villa, numberOfUsesVilla);
                     numberOfUsesVilla++;
                     break;
                 case 2:
+                    System.out.println("Enter service code.");
+                    String serviceCodeRoom;
+                    do {
+                        serviceCodeRoom = scanner.nextLine();
+                        if (Validate.validate(SERVICE_CODE, serviceCodeRoom)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+
                     System.out.println("Enter service name.");
-                    String serviceNameRoom = scanner.nextLine();
+                    String serviceNameRoom;
+                    do {
+                        serviceNameRoom = scanner.nextLine();
+                        if (Validate.validate(SERVICE_NAME, serviceNameRoom)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+
                     System.out.println("Enter usable area.");
-                    double usableAreaRoom = Double.parseDouble(scanner.nextLine());
-                    System.out.println("Enter rental costs");
-                    double rentalCostsRoom = Double.parseDouble(scanner.nextLine());
-                    System.out.println("Enter maximum number of people");
-                    int maximumNumberOfPeopleRoom = Integer.parseInt(scanner.nextLine());
-                    System.out.println("Enter rental type");
-                    String rentalTypeRoom = scanner.nextLine();
+                    String usableAreaRoomScecnner;
+                    do {
+                        usableAreaRoomScecnner = scanner.nextLine();
+                        if (Validate.validate(USABLE_AREA, usableAreaRoomScecnner)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+                    double usableAreaRoom = Double.parseDouble(usableAreaRoomScecnner);
+
+                    System.out.println("Enter rental costs.");
+                    String rentalCostsRoomScenner;
+                    do {
+                        rentalCostsRoomScenner = scanner.nextLine();
+                        if (Validate.validate(RENTAL_COSTS, rentalCostsRoomScenner)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+                    double rentalCostsRoom = Double.parseDouble(rentalCostsRoomScenner);
+
+                    System.out.println("Enter maximum number of people.");
+                    String maximumNumberOfPeopleRoomScanner;
+                    do {
+                        maximumNumberOfPeopleRoomScanner = scanner.nextLine();
+                        if (Validate.validate(MAXIMUN_NUMBER_OF_PEOPLE, maximumNumberOfPeopleRoomScanner)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+                    int maximumNumberOfPeopleRoom = Integer.parseInt(maximumNumberOfPeopleRoomScanner);
+
+                    System.out.println("Enter rental type.");
+                    String rentalTypeRoom;
+                    do {
+                        rentalTypeRoom = scanner.nextLine();
+                        if (Validate.validate(RENTAL_TYPE, rentalTypeRoom)){
+                            break;
+                        }else {
+                            System.err.println("Incorrect input, please re-enter.");
+                        }
+                    }while (true);
+
                     System.out.println("Enter free service included");
                     String freeServiceIncludedRoom = scanner.nextLine();
-                    Room room = new Room(serviceNameRoom,usableAreaRoom,rentalCostsRoom,maximumNumberOfPeopleRoom,
-                            rentalTypeRoom,freeServiceIncludedRoom);
-                    facilityController.addFacility(room,numberOfUsesRoom);
+
+                    Room room = new Room(serviceCodeRoom, serviceNameRoom, usableAreaRoom, rentalCostsRoom, maximumNumberOfPeopleRoom,
+                            rentalTypeRoom, freeServiceIncludedRoom);
+                    facilityController.addFacility(room, numberOfUsesRoom);
                     numberOfUsesRoom++;
                     break;
                 case 3:

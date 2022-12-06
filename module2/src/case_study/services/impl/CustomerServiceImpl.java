@@ -1,7 +1,6 @@
 package case_study.services.impl;
 
 import case_study.models.Person.Customer;
-import case_study.models.Person.Employee;
 import case_study.services.ICustomerService;
 
 import java.util.LinkedList;

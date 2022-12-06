@@ -2,6 +2,7 @@ package case_study.views;
 
 import case_study.controllers.CustomerController;
 import case_study.models.Person.Customer;
+import case_study.utils.Validate;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.Scanner;
 
 public class CustomerManagement {
     private static final Scanner scanner = new Scanner(System.in);
+    private static final String DATE_OF_BIRTH = "^([0-2][0-9]|3[0-1])/(0[0-9]|1[0-2])/[0-9]{4}$";
     private static final CustomerController customerController = new CustomerController();
 
     public static void menuFuramaOption2() {
@@ -39,7 +41,15 @@ public class CustomerManagement {
                         System.out.println("Enter name.");
                         String nameAdd = scanner.nextLine();
                         System.out.println("Enter date of birth.");
-                        String dateOfBirthAdd = scanner.nextLine();
+                        String dateOfBirthAdd;
+                        do {
+                            dateOfBirthAdd = scanner.nextLine();
+                            if (Validate.validate(DATE_OF_BIRTH, dateOfBirthAdd)){
+                                break;
+                            }else {
+                                System.err.println("Incorrect input, please re-enter.");
+                            }
+                        }while (true);
                         System.out.println("Enter sex.");
                         String sexAdd = scanner.nextLine();
                         System.out.println("Enter id number.");
@@ -73,14 +83,15 @@ public class CustomerManagement {
                             }
                         }
                         System.out.println("Enter date of birth.");
-                        String dateOfBirthEdit = scanner.nextLine();
-                        if (Objects.equals(dateOfBirthEdit, "")) {
-                            for (Customer item : customerList) {
-                                if (codeEdit == item.getCode()) {
-                                    dateOfBirthEdit = item.getDateOfBirth();
-                                }
+                        String dateOfBirthEdit;
+                        do {
+                            dateOfBirthEdit = scanner.nextLine();
+                            if (Validate.validate(DATE_OF_BIRTH, dateOfBirthEdit)){
+                                break;
+                            }else {
+                                System.err.println("Incorrect input, please re-enter.");
                             }
-                        }
+                        }while (true);
                         System.out.println("Enter sex.");
                         String sexEdit = scanner.nextLine();
                         if (Objects.equals(sexEdit, "")) {
