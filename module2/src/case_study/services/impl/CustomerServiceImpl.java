@@ -27,8 +27,14 @@ public class CustomerServiceImpl implements ICustomerService {
         } else {
             for (Customer item : customerList) {
                 if (code == item.getCode()) {
-                    customerList.remove(item);
-                    customerList.add(customer);
+                    item.setName(customer.getName());
+                    item.setDateOfBirth(customer.getDateOfBirth());
+                    item.setSex(customer.getSex());
+                    item.setIdNumber(customer.getIdNumber());
+                    item.setPhoneNumber(customer.getPhoneNumber());
+                    item.setEmail(customer.getEmail());
+                    item.setTypeOfGuest(customer.getTypeOfGuest());
+                    item.setAddress(customer.getAddress());
                     return;
                 }
             }

@@ -40,8 +40,15 @@ public class EmployeeServiceImpl implements IEmployeeService {
         } else {
             for (Employee item : employeeServiceList) {
                 if (code == item.getCode()) {
-                    employeeServiceList.remove(item);
-                    employeeServiceList.add(employee);
+                    item.setName(employee.getName());
+                    item.setDateOfBirth(employee.getDateOfBirth());
+                    item.setSex(employee.getSex());
+                    item.setIdNumber(employee.getIdNumber());
+                    item.setPhoneNumber(employee.getPhoneNumber());
+                    item.setEmail(employee.getEmail());
+                    item.setLevel(employee.getLevel());
+                    item.setLocation(employee.getLocation());
+                    item.setWage(employee.getWage());
                     return;
                 }
             }
