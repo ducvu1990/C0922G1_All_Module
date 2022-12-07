@@ -46,7 +46,7 @@ public class EmployeeManagement {
                         String dateOfBirthAdd;
                         do {
                             dateOfBirthAdd = scanner.nextLine();
-                            if (Validate.validate(DATE_OF_BIRTH, dateOfBirthAdd)){
+                            if (Validate.regexAge(DATE_OF_BIRTH,dateOfBirthAdd)){
                                 break;
                             }else {
                                 System.err.println("Incorrect input, please re-enter.");
@@ -103,7 +103,7 @@ public class EmployeeManagement {
                         String dateOfBirthEdit;
                         do {
                             dateOfBirthEdit = scanner.nextLine();
-                            if (Validate.validate(DATE_OF_BIRTH, dateOfBirthEdit)){
+                            if (Validate.regexAge(DATE_OF_BIRTH,dateOfBirthEdit)){
                                 break;
                             }else {
                                 System.err.println("Incorrect input, please re-enter.");
