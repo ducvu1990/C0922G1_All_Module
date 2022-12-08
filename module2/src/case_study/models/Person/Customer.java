@@ -11,7 +11,11 @@ public class Customer extends Person {
         this.typeOfGuest = typeOfGuest;
         this.address = address;
     }
-
+public Customer(String[] array){
+        super(Integer.parseInt(array[0]),array[1],array[2],array[3],array[4],array[5],array[6] );
+        this.typeOfGuest = array[7];
+        this.address = array[8];
+}
     public Customer(int code, String name, String dateOfBirth, String sex, String idNumber, String phoneNumber,
                     String email, String typeOfGuest, String address) {
         super(code, name, dateOfBirth, sex, idNumber, phoneNumber, email);

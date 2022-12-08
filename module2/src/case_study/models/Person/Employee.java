@@ -14,6 +14,13 @@ public class Employee extends Person {
         this.wage = wage;
     }
 
+    public Employee(String[] array) {
+        super(Integer.parseInt(array[0]),array[1],array[2],array[3],array[4],array[5],array[6] );
+        this.level = array[7];
+        this.location = array[8];
+        this.wage = array[9];
+    }
+
     public Employee(int code, String name, String dateOfBirth, String sex, String idNumber, String phoneNumber,
                     String email, String level, String location, String wage) {
         super(code, name, dateOfBirth, sex, idNumber, phoneNumber, email);

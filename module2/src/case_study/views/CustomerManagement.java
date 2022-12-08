@@ -62,7 +62,8 @@ public class CustomerManagement {
                         String typeOfGuestAdd = scanner.nextLine();
                         System.out.println("Enter address.");
                         String addressAdd = scanner.nextLine();
-                        Customer customerAdd = new Customer(codeAdd, nameAdd, dateOfBirthAdd, sexAdd, idNumberAdd, phoneNumberAdd, emailAdd, typeOfGuestAdd, addressAdd);
+                        Customer customerAdd = new Customer(codeAdd, nameAdd, dateOfBirthAdd, sexAdd, idNumberAdd,
+                                phoneNumberAdd, emailAdd, typeOfGuestAdd, addressAdd);
                         customerController.addCustomer(customerAdd);
                     }
 
