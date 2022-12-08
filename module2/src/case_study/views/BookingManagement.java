@@ -6,7 +6,7 @@ public class BookingManagement {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void menuFuramaOption4() {
-        int option4;
+        int option4 = 0;
         do {
             System.out.println("---MENU Booking Management---\n" +
                     "1.\tAdd new booking\n" +
@@ -16,7 +16,7 @@ public class BookingManagement {
                 option4 = Integer.parseInt(scanner.nextLine());
 
             } catch (NumberFormatException e) {
-                throw new NumberFormatException(e.getMessage());
+                System.err.println(e.getMessage());
             }
             switch (option4) {
                 case 1:

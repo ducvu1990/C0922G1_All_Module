@@ -17,4 +17,7 @@ public class FacilityController {
     public List<Facility> displays() {
         return facilityService.displays();
     }
+    public boolean checkServiceCode(String serviceCode) {
+        return facilityService.checkServiceCode(serviceCode);
+    }
 }

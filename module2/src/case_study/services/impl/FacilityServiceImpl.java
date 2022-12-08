@@ -2,6 +2,7 @@ package case_study.services.impl;
 
 import case_study.models.Person.Employee;
 import case_study.models.facility.Facility;
+import case_study.models.facility.Room;
 import case_study.models.facility.Villa;
 import case_study.services.IFacilityService;
 
@@ -14,9 +15,15 @@ public class FacilityServiceImpl implements IFacilityService {
 
     @Override
     public void addFacility(Facility facility, int numberOfUses) {
-        Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
-
-        facilityIntegerMap.put(facility, numberOfUses);
+        if (facility.getServiceCode().matches("^SVVL-[0-9]{4}")){
+            List<String> arrayReadFromFile = ioFuramaService.readData(PATH_VILLA_FILE);
+            arrayReadFromFile.add(facility.toString()+","+numberOfUses);
+            ioFuramaService.writeData(PATH_VILLA_FILE,arrayReadFromFile);
+        }else {
+            List<String> arrayReadFromFile = ioFuramaService.readData(PATH_ROOM_FILE);
+            arrayReadFromFile.add(facility.toString()+","+numberOfUses);
+            ioFuramaService.writeData(PATH_ROOM_FILE,arrayReadFromFile);
+        }
     }
 
     @Override
@@ -24,16 +31,29 @@ public class FacilityServiceImpl implements IFacilityService {
         Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
         int value;
         List<String> arrayReadFromFileVilla = ioFuramaService.readData(PATH_VILLA_FILE);
-        for (String item : arrayReadFromFileVilla) {
-            String[] arraysUsedToCreateObjects = item.split(",");
-            value = Integer.parseInt(arraysUsedToCreateObjects[9]);
-            facilityIntegerMap.put(new Villa(arraysUsedToCreateObjects), value);
+        if (arrayReadFromFileVilla == null){
+
+        }else {
+            for (String item : arrayReadFromFileVilla) {
+                String[] arraysUsedToCreateObjects = item.split(",");
+                value = Integer.parseInt(arraysUsedToCreateObjects[9]);
+                if (value < 5){
+                    facilityIntegerMap.put(new Villa(arraysUsedToCreateObjects), value);
+                }
+            }
         }
+
         List<String> arrayReadFromFileRoom = ioFuramaService.readData(PATH_ROOM_FILE);
-        for (String item : arrayReadFromFileRoom) {
-            String[] arraysUsedToCreateObjects = item.split(",");
-            value = Integer.parseInt(arraysUsedToCreateObjects[7]);
-            facilityIntegerMap.put(new Villa(arraysUsedToCreateObjects), value);
+        if (arrayReadFromFileRoom == null){
+            return facilityIntegerMap;
+        }else {
+            for (String item : arrayReadFromFileRoom) {
+                String[] arraysUsedToCreateObjects = item.split(",");
+                value = Integer.parseInt(arraysUsedToCreateObjects[7]);
+                if (value < 5){
+                    facilityIntegerMap.put(new Room(arraysUsedToCreateObjects), value);
+                }
+            }
         }
         return facilityIntegerMap;
     }
@@ -42,6 +62,32 @@ public class FacilityServiceImpl implements IFacilityService {
     public List<Facility> displays() {
         Map<Facility, Integer> facilityIntegerMap = new LinkedHashMap<>();
         List<Facility> facilityArrayList = new ArrayList<>();
+        int value;
+        List<String> arrayReadFromFileVilla = ioFuramaService.readData(PATH_VILLA_FILE);
+        if (arrayReadFromFileVilla == null){
+
+        }else {
+            for (String item : arrayReadFromFileVilla) {
+                String[] arraysUsedToCreateObjects = item.split(",");
+                value = Integer.parseInt(arraysUsedToCreateObjects[9]);
+                if (value < 5){
+                    facilityIntegerMap.put(new Villa(arraysUsedToCreateObjects), value);
+                }
+            }
+        }
+
+        List<String> arrayReadFromFileRoom = ioFuramaService.readData(PATH_ROOM_FILE);
+        if (arrayReadFromFileRoom == null){
+            return facilityArrayList;
+        }else {
+            for (String item : arrayReadFromFileRoom) {
+                String[] arraysUsedToCreateObjects = item.split(",");
+                value = Integer.parseInt(arraysUsedToCreateObjects[7]);
+                if (value < 5){
+                    facilityIntegerMap.put(new Room(arraysUsedToCreateObjects), value);
+                }
+            }
+        }
         Set<Facility> facilityList = facilityIntegerMap.keySet();
         for (Facility key : facilityList) {
             facilityArrayList.add(key);
@@ -55,11 +101,20 @@ public class FacilityServiceImpl implements IFacilityService {
             arraysUsedToCreateFacility = ioFuramaService.readData(PATH_VILLA_FILE);
             for (String item : arraysUsedToCreateFacility) {
                 String[] arrayVila = item.split(",");
-
+                if (arrayVila[0].equals(serviceCode)){
+                    return true;
+                }
             }
+            return false;
         } else {
-
+            arraysUsedToCreateFacility = ioFuramaService.readData(PATH_ROOM_FILE);
+            for (String item : arraysUsedToCreateFacility) {
+                String[] arrayVila = item.split(",");
+                if (arrayVila[0].equals(serviceCode)){
+                    return true;
+                }
+            }
+            return false;
         }
-        return false;
     }
 }

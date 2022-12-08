@@ -11,11 +11,14 @@ import java.util.Scanner;
 
 public class EmployeeManagement {
     private static final Scanner scanner = new Scanner(System.in);
-    private static final String DATE_OF_BIRTH = "^([0-2][0-9]|3[0-1])/(0[0-9]|1[0-2])/[0-9]{4}$";
+    private static final String DATE_OF_BIRTH = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)" +
+            "(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?" +
+            "(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])" +
+            "(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
     private static final EmployeeController employeeController = new EmployeeController();
 
     public static void menuFuramaOption1() {
-        int option1;
+        int option1 = 0;
         do {
             System.out.println("---MENU Employee Management---\n" +
                     "1\tDisplay list employees\n" +
@@ -25,9 +28,8 @@ public class EmployeeManagement {
                     "5\tReturn main menu\n");
             try {
                 option1 = Integer.parseInt(scanner.nextLine());
-
             } catch (NumberFormatException e) {
-                throw new NumberFormatException(e.getMessage());
+                System.err.println(e.getMessage());
             }
             switch (option1) {
                 case 1:
@@ -182,8 +184,7 @@ public class EmployeeManagement {
                 case 5:
                     return;
                 default:
-                    System.out.println("Invalid number entered.");
-                    break;
+                    System.err.println("Invalid number entered.");
             }
         } while (true);
     }

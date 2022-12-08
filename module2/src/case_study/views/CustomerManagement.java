@@ -11,11 +11,14 @@ import java.util.Scanner;
 
 public class CustomerManagement {
     private static final Scanner scanner = new Scanner(System.in);
-    private static final String DATE_OF_BIRTH = "^([0-2][0-9]|3[0-1])/(0[0-9]|1[0-2])/[0-9]{4}$";
+    private static final String DATE_OF_BIRTH = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)" +
+            "(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?" +
+            "(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])" +
+            "(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
     private static final CustomerController customerController = new CustomerController();
 
     public static void menuFuramaOption2() {
-        int option2;
+        int option2 = 0;
         do {
             System.out.println("---MENU Customer Management---\n" +
                     "1.\tDisplay list customers\n" +
@@ -26,7 +29,7 @@ public class CustomerManagement {
                 option2 = Integer.parseInt(scanner.nextLine());
 
             } catch (NumberFormatException e) {
-                throw new NumberFormatException(e.getMessage());
+                System.err.println(e.getMessage());
             }
             switch (option2) {
                 case 1:
@@ -44,12 +47,12 @@ public class CustomerManagement {
                         String dateOfBirthAdd;
                         do {
                             dateOfBirthAdd = scanner.nextLine();
-                            if (Validate.regexAge(DATE_OF_BIRTH,dateOfBirthAdd)){
+                            if (Validate.regexAge(DATE_OF_BIRTH, dateOfBirthAdd)) {
                                 break;
-                            }else {
+                            } else {
                                 System.err.println("Incorrect input, please re-enter.");
                             }
-                        }while (true);
+                        } while (true);
                         System.out.println("Enter sex.");
                         String sexAdd = scanner.nextLine();
                         System.out.println("Enter id number.");
@@ -87,12 +90,12 @@ public class CustomerManagement {
                         String dateOfBirthEdit;
                         do {
                             dateOfBirthEdit = scanner.nextLine();
-                            if (Validate.regexAge(DATE_OF_BIRTH,dateOfBirthEdit)){
+                            if (Validate.regexAge(DATE_OF_BIRTH, dateOfBirthEdit)) {
                                 break;
-                            }else {
+                            } else {
                                 System.err.println("Incorrect input, please re-enter.");
                             }
-                        }while (true);
+                        } while (true);
                         System.out.println("Enter sex.");
                         String sexEdit = scanner.nextLine();
                         if (Objects.equals(sexEdit, "")) {

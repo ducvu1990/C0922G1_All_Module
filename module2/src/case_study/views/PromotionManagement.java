@@ -6,7 +6,7 @@ public class PromotionManagement {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void menuFuramaOption5() {
-        int option5;
+        int option5 = 0;
         do {
             System.out.println("---MENU Promotion Management---\n" +
                     "1.\tDisplay list customers use service\n" +
@@ -16,7 +16,7 @@ public class PromotionManagement {
                 option5 = Integer.parseInt(scanner.nextLine());
 
             } catch (NumberFormatException e) {
-                throw new NumberFormatException(e.getMessage());
+                System.err.println(e.getMessage());
             }
             switch (option5) {
                 case 1:

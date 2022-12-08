@@ -6,7 +6,7 @@ public class MenuFurama {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void displayMainMenu() {
-        int option;
+        int option = 0;
         do {
             System.out.println("-----MENU-----\n" +
                     "1.\tEmployee Management\n" +
@@ -19,7 +19,7 @@ public class MenuFurama {
                 option = Integer.parseInt(scanner.nextLine());
 
             } catch (NumberFormatException e) {
-                throw new NumberFormatException(e.getMessage());
+                System.err.println(e.getMessage());
             }
             switch (option) {
                 case 1:
